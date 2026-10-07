@@ -22,13 +22,12 @@ El repositorio sigue una estricta separación de responsabilidades en sus direct
 ```text
 EB-Web-Oficial/
 ├── 404.html                     # Página de error 404 personalizada
-├── index.html                   # Página de redirección principal
+├── index.html                   # Página principal y portfolio
 ├── AGENTS.md                    # Reglas obligatorias para el agente
 ├── Estilo/                      # Todos los archivos de estilos CSS
 │   ├── styles.css
 │   └── 404.css
-├── Estructura/                  # Todas las páginas y vistas HTML principales
-│   ├── inicio.html
+├── Estructura/                  # Todas las páginas y vistas HTML secundarias
 │   ├── gdg.html
 │   └── universidad.html
 ├── Media/                       # Directorio central de recursos multimedia
