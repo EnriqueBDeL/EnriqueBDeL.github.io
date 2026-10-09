@@ -159,3 +159,149 @@ document.querySelectorAll('.post-it img').forEach(img => {
     });
 });
 
+/* ==========================================================================
+   Project Carousels Controller
+   ========================================================================== */
+function initProjectCarousels() {
+    const carousels = document.querySelectorAll('.projects-carousel');
+    if (!carousels.length) return;
+
+    carousels.forEach(carousel => {
+        const carouselId = carousel.id;
+        const track = carousel.querySelector('.projects-carousel-track');
+        const prevBtn = document.querySelector(`.carousel-btn.prev[data-carousel="${carouselId}"]`);
+        const nextBtn = document.querySelector(`.carousel-btn.next[data-carousel="${carouselId}"]`);
+
+        const isAutoplay = carousel.dataset.autoplay === 'true';
+        const autoplaySpeed = parseInt(carousel.dataset.autoplaySpeed, 10) || 4000;
+
+        let autoplayTimer = null;
+        let isUserInteracting = false;
+
+        function getScrollStep() {
+            const firstCard = track ? track.querySelector('.project-card') : null;
+            if (!firstCard) return carousel.clientWidth * 0.8;
+            const style = window.getComputedStyle(track);
+            const gap = parseFloat(style.gap) || 28;
+            return firstCard.offsetWidth + gap;
+        }
+
+        function scrollNext() {
+            const step = getScrollStep();
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            if (carousel.scrollLeft >= maxScroll - 15) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: step, behavior: 'smooth' });
+            }
+        }
+
+        function scrollPrev() {
+            const step = getScrollStep();
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            if (carousel.scrollLeft <= 15) {
+                carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: -step, behavior: 'smooth' });
+            }
+        }
+
+        function startAutoplay() {
+            if (!isAutoplay || autoplayTimer || isUserInteracting) return;
+            autoplayTimer = setInterval(() => {
+                if (!document.hidden) {
+                    scrollNext();
+                }
+            }, autoplaySpeed);
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        function resetAutoplay() {
+            stopAutoplay();
+            if (!isUserInteracting) {
+                startAutoplay();
+            }
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                scrollNext();
+                resetAutoplay();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                scrollPrev();
+                resetAutoplay();
+            });
+        }
+
+        carousel.addEventListener('mouseenter', () => {
+            isUserInteracting = true;
+            stopAutoplay();
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            isUserInteracting = false;
+            startAutoplay();
+        });
+
+        carousel.addEventListener('touchstart', () => {
+            isUserInteracting = true;
+            stopAutoplay();
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', () => {
+            isUserInteracting = false;
+            setTimeout(startAutoplay, 1500);
+        }, { passive: true });
+
+        let isDown = false;
+        let startX = 0;
+        let scrollLeftPos = 0;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            isUserInteracting = true;
+            stopAutoplay();
+            carousel.classList.add('is-dragging');
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeftPos = carousel.scrollLeft;
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDown) {
+                isDown = false;
+                carousel.classList.remove('is-dragging');
+                isUserInteracting = false;
+                setTimeout(startAutoplay, 1500);
+            }
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            carousel.scrollLeft = scrollLeftPos - walk;
+        });
+
+        startAutoplay();
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectCarousels);
+} else {
+    initProjectCarousels();
+}
+

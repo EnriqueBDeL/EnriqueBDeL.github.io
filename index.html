@@ -152,67 +152,204 @@
         <section id="proyectos" class="section fade-in">
             <article class="section-container">
                 <h2 class="section-title">Proyectos Destacados</h2>
-                <p class="section-subtitle">Colecciones proyectos creados durante mi aprendizaje.</p>
-                <section class="projects-grid">
-                    <article class="project-card">
-                        <figure class="project-icon"><i class="ph ph-chart-line-up"></i></figure>
-                        <h3>Stats Api</h3>
-                        <p>Último proyecto destacado en desarrollo.</p>
-                        <aside class="project-tags">
-                            <span>API</span><span>GitHub</span>
-                        </aside>
-                        <a href="https://github.com/EnriqueBDeL/stats-api" target="_blank" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
-                    </article>
-                    
-                    <article class="project-card">
-                        <figure class="project-icon"><i class="ph ph-soccer-ball"></i></figure>
-                        <h3>App Club Football</h3>
-                        <p>Trabajo Final de Programación Orientada a Objetos.</p>
-                        <aside class="project-tags">
-                            <span>POO</span>
-                        </aside>
-                        <a href="https://github.com/EnriqueBDeL/Trabajo-Final-POO" target="_blank" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
-                    </article>
+                <p class="section-subtitle">Colección de proyectos y desarrollos destacados clasificados por creaciones propias y trabajos universitarios.</p>
 
-                    <article class="project-card">
-                        <figure class="project-icon"><i class="ph ph-shopping-cart"></i></figure>
-                        <h3>RDE Solutions</h3>
-                        <p>Trabajo Final SGI.</p>
-                        <aside class="project-tags">
-                            <span>SGI</span>
-                        </aside>
-                        <a href="https://github.com/EnriqueBDeL/RDE-Solutions--Trabajo-Final-SGI" target="_blank" class="project-link">Ver proyecto <i class="ph ph-arrow-up-right"></i></a>
-                    </article>
+                <!-- Carrusel 1: Creaciones Propias -->
+                <section class="projects-carousel-wrapper">
+                    <header class="carousel-section-header">
+                        <section class="carousel-heading-group">
+                            <h3 class="carousel-section-title"><i class="ph ph-sparkle"></i> Creaciones Propias</h3>
+                            <p class="carousel-section-desc">Proyectos de software, herramientas y aplicaciones de iniciativa personal.</p>
+                        </section>
+                    </header>
 
-                    <article class="project-card">
-                        <figure class="project-icon"><i class="ph ph-clock"></i></figure>
-                        <h3>Cronixis</h3>
-                        <p>Trabajo Final SIE.</p>
-                        <aside class="project-tags">
-                            <span>SIE</span>
-                        </aside>
-                        <a href="https://github.com/EnriqueBDeL/Cronixis--Trabajo-Final-SIE" target="_blank" class="project-link">Ver proyecto <i class="ph ph-arrow-up-right"></i></a>
-                    </article>
+                    <section class="carousel-viewport-wrapper">
+                        <button type="button" class="carousel-btn prev" data-carousel="carousel-propias" aria-label="Proyecto anterior">
+                            <i class="ph ph-caret-left"></i>
+                        </button>
 
-                    <article class="project-card">
-                        <figure class="project-icon"><i class="ph ph-globe"></i></figure>
-                        <h3>CG Cultura General</h3>
-                        <p>Sitio web oficial de cultura y conocimiento general.</p>
-                        <aside class="project-tags">
-                            <span>Website</span>
-                        </aside>
-                        <a href="https://sites.google.com/view/culturageneraloficial/inicio" target="_blank" class="project-link">Visitar web <i class="ph ph-arrow-up-right"></i></a>
-                    </article>
+                        <section class="projects-carousel" id="carousel-propias" data-autoplay="true" data-autoplay-speed="4500" aria-label="Carrusel de creaciones propias">
+                            <section class="projects-carousel-track">
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-chart-line-up"></i></figure>
+                                    <h3>Stats API</h3>
+                                    <p>API RESTful orientada a la recopilación, procesamiento y análisis dinámico de estadísticas y métricas.</p>
+                                    <aside class="project-tags">
+                                        <span>API</span><span>Python</span><span>Flask</span><span>Backend</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/stats-api" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
 
-                    <article class="project-card">
-                        <figure class="project-icon"><i class="ph ph-books"></i></figure>
-                        <h3>Clases Ingeniería Informática</h3>
-                        <p>Recopilación de clases propias, incluyendo MIPS, SQL, OpenMP, Java y C.</p>
-                        <aside class="project-tags">
-                            <span>Repositorio</span><span>Universidad</span>
-                        </aside>
-                        <a href="https://github.com/stars/EnriqueBDeL/lists/clases-propias" target="_blank" class="project-link">Ver lista de clases <i class="ph ph-arrow-up-right"></i></a>
-                    </article>
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-shield-check"></i></figure>
+                                    <h3>Python Library Detection & Runtime Auditor</h3>
+                                    <p>Herramienta técnica de auditoría para la detección, inspección y validación de librerías y dependencias en entornos de ejecución Python.</p>
+                                    <aside class="project-tags">
+                                        <span>Python</span><span>Auditoría</span><span>Seguridad</span><span>Runtime</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Python-Library-Detection-Runtime-Auditor" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-sliders-horizontal"></i></figure>
+                                    <h3>Lantern Monitor Controller</h3>
+                                    <p>Sistema de control, monitoreo en tiempo real y supervisión de estado operativo para controladores y servicios Lantern.</p>
+                                    <aside class="project-tags">
+                                        <span>Python</span><span>Control</span><span>Monitorización</span><span>IoT</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Lantern-Monitor-Controller" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-globe"></i></figure>
+                                    <h3>EB Web</h3>
+                                    <p>Sitio web y portfolio personal oficial de ingeniería informática, con arquitectura semántica HTML5, modo oscuro/claro y alto rendimiento.</p>
+                                    <aside class="project-tags">
+                                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Portfolio</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/EnriqueBDeL.github.io" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+                            </section>
+                        </section>
+
+                        <button type="button" class="carousel-btn next" data-carousel="carousel-propias" aria-label="Proyecto siguiente">
+                            <i class="ph ph-caret-right"></i>
+                        </button>
+                    </section>
+                </section>
+
+                <!-- Carrusel 2: Proyectos Universitarios -->
+                <section class="projects-carousel-wrapper">
+                    <header class="carousel-section-header">
+                        <section class="carousel-heading-group">
+                            <h3 class="carousel-section-title"><i class="ph ph-graduation-cap"></i> Proyectos Universitarios</h3>
+                            <p class="carousel-section-desc">Trabajos prácticos, aplicaciones y arquitecturas desarrolladas durante el Grado en Ingeniería Informática.</p>
+                        </section>
+                    </header>
+
+                    <section class="carousel-viewport-wrapper">
+                        <button type="button" class="carousel-btn prev" data-carousel="carousel-uni" aria-label="Proyecto anterior">
+                            <i class="ph ph-caret-left"></i>
+                        </button>
+
+                        <section class="projects-carousel" id="carousel-uni" data-autoplay="true" data-autoplay-speed="4000" aria-label="Carrusel de proyectos universitarios">
+                            <section class="projects-carousel-track">
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-game-controller"></i></figure>
+                                    <h3>RJE Gaming Hub</h3>
+                                    <p>Trabajo Final de Programación Visual Avanzada (PVA). Plataforma integral tipo lanzador y hub para la gestión centralizada de videojuegos.</p>
+                                    <aside class="project-tags">
+                                        <span>PVA</span><span>C# / .NET</span><span>GUI</span><span>Gaming</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/RJE-Gaming-Hub--Trabajo_Final_PVA-" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-cpu"></i></figure>
+                                    <h3>Prog. Paralela 24-25</h3>
+                                    <p>Trabajo Final de Programación Paralela (2024–2025). Algoritmos de alto rendimiento optimizados con OpenMP y paralelismo computacional.</p>
+                                    <aside class="project-tags">
+                                        <span>Paralela</span><span>C / C++</span><span>OpenMP</span><span>HPC</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-Programacion-Paralela-2024--2025" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-shopping-cart"></i></figure>
+                                    <h3>RDE Solutions</h3>
+                                    <p>Trabajo Final de Sistemas de Gestión de la Información (SGI). Sistema empresarial de catálogo, pedidos y gestión de inventario.</p>
+                                    <aside class="project-tags">
+                                        <span>SGI</span><span>Gestión</span><span>BBDD</span><span>Empresa</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/RDE-Solutions--Trabajo-Final-SGI" target="_blank" rel="noopener noreferrer" class="project-link">Ver proyecto <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-brain"></i></figure>
+                                    <h3>Sistemas Inteligentes</h3>
+                                    <p>Práctica Final de Inteligencia Artificial centrada en algoritmos de búsqueda heurística, optimización y toma de decisiones.</p>
+                                    <aside class="project-tags">
+                                        <span>IA</span><span>Heurística</span><span>Algoritmos</span><span>Sistemas Inteligentes</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Practica-Final-Sistemas-Inteligentes" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-clock"></i></figure>
+                                    <h3>Cronixis</h3>
+                                    <p>Trabajo Final de Soluciones Informáticas para la Empresa (SIE). Plataforma de gestión, asignación de tareas y planificación temporal.</p>
+                                    <aside class="project-tags">
+                                        <span>SIE</span><span>Productividad</span><span>Planificación</span><span>Empresa</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Cronixis--Trabajo-Final-SIE" target="_blank" rel="noopener noreferrer" class="project-link">Ver proyecto <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-soccer-ball"></i></figure>
+                                    <h3>App Club Football</h3>
+                                    <p>Trabajo Final de Programación Orientada a Objetos (POO). Sistema estructurado para la administración deportiva de plantillas y clubes.</p>
+                                    <aside class="project-tags">
+                                        <span>POO</span><span>Java</span><span>Patrones de Diseño</span><span>Gestión</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-POO" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-network"></i></figure>
+                                    <h3>Trabajo Final DAD1</h3>
+                                    <p>Trabajo Final de Desarrollo de Aplicaciones Distribuidas 1. Comunicación en red distribuida y arquitectura cliente-servidor mediante sockets.</p>
+                                    <aside class="project-tags">
+                                        <span>DAD1</span><span>Sockets</span><span>Java</span><span>Distribuido</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-DAD1" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-plugs-connected"></i></figure>
+                                    <h3>Práctica RMI</h3>
+                                    <p>Sistema distribuido basado en Remote Method Invocation (RMI) en Java para invocación y concurrencia de métodos remotos.</p>
+                                    <aside class="project-tags">
+                                        <span>Java RMI</span><span>Distribuido</span><span>RPC</span><span>Concurrencia</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Practica-RMI" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-tree-structure"></i></figure>
+                                    <h3>Proyecto Final DAD2</h3>
+                                    <p>Trabajo Final de Desarrollo de Aplicaciones Distribuidas 2. Arquitectura orientada a servicios, persistencia y comunicación distribuida avanzada.</p>
+                                    <aside class="project-tags">
+                                        <span>DAD2</span><span>Arquitectura Distribuida</span><span>Backend</span><span>Servicios</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Proyecto-Final-DAD2" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-cloud-check"></i></figure>
+                                    <h3>Proyecto Final DAD2 SW-REST</h3>
+                                    <p>Implementación de servicios web RESTful distribuidos con contratos de API, autenticación y persistencia de datos.</p>
+                                    <aside class="project-tags">
+                                        <span>DAD2</span><span>REST API</span><span>Web Services</span><span>HTTP / JSON</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Proyecto-Final-DAD2-SW-REST" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+
+                                <article class="project-card">
+                                    <figure class="project-icon"><i class="ph ph-lightning"></i></figure>
+                                    <h3>Prog. Paralela 25-26</h3>
+                                    <p>Trabajo Final de Programación Paralela (2025–2026). Aceleración computacional avanzada sobre GPU con CUDA y optimizaciones en memoria compartida.</p>
+                                    <aside class="project-tags">
+                                        <span>Paralela</span><span>CUDA</span><span>OpenMP</span><span>GPU Computing</span>
+                                    </aside>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-Programacion-Paralela-2025--2026" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                </article>
+                            </section>
+                        </section>
+
+                        <button type="button" class="carousel-btn next" data-carousel="carousel-uni" aria-label="Proyecto siguiente">
+                            <i class="ph ph-caret-right"></i>
+                        </button>
+                    </section>
                 </section>
             </article>
         </section>
