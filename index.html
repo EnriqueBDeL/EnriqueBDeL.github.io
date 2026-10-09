@@ -34,23 +34,47 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Enrique Braquehais De Lara",
-      "alternateName": ["EnriqueBDL", "Enrique BDL"],
-      "jobTitle": "Estudiante de Ingeniería Informática",
-      "url": "https://enriquebdel.github.io/",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKxrqDm2z5ap1THlOTz6x0X0Fo3TgKrpAV8KpBBpS99w&s=10",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Universidad Católica San Antonio de Murcia (UCAM)"
-      },
-      "sameAs": [
-        "https://github.com/EnriqueBDeL",
-        "https://www.linkedin.com/in/enrique-braquehais-de-lara-6140a1268",
-        "https://x.com/Enrique_BDL",
-        "https://youtube.com/@enrique_bdl",
-        "https://instagram.com/enrique__bl",
-        "https://enriquebdl.taplink.ws/"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://enriquebdel.github.io/#webpage",
+          "url": "https://enriquebdel.github.io/",
+          "name": "Enrique Braquehais De Lara | Portfolio y Perfil de Ingeniería Informática",
+          "description": "Portfolio oficial de Enrique Braquehais De Lara, estudiante de Ingeniería Informática en la UCAM. Explora proyectos técnicos, código en GitHub y trayectoria profesional.",
+          "inLanguage": "es",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [
+              ".hero-title",
+              ".hero-subtitle",
+              ".about-text"
+            ]
+          },
+          "mainEntity": {
+            "@id": "https://enriquebdel.github.io/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://enriquebdel.github.io/#person",
+          "name": "Enrique Braquehais De Lara",
+          "alternateName": ["EnriqueBDL", "Enrique BDL"],
+          "jobTitle": "Estudiante de Ingeniería Informática",
+          "url": "https://enriquebdel.github.io/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKxrqDm2z5ap1THlOTz6x0X0Fo3TgKrpAV8KpBBpS99w&s=10",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Católica San Antonio de Murcia (UCAM)"
+          },
+          "sameAs": [
+            "https://github.com/EnriqueBDeL",
+            "https://www.linkedin.com/in/enrique-braquehais-de-lara-6140a1268",
+            "https://x.com/Enrique_BDL",
+            "https://youtube.com/@enrique_bdl",
+            "https://instagram.com/enrique__bl",
+            "https://enriquebdl.taplink.ws/"
+          ]
+        }
       ]
     }
     </script>
