@@ -81,3 +81,14 @@ EB-Web-Oficial/
 
 1. **Idioma Principal**: El idioma principal del proyecto, textos de interfaz, contenidos, comentarios y explicaciones técnicas es el **Español** (con el Inglés como soporte secundario si aplica).
 2. **Consistencia**: Cualquier cambio debe mantener la armonía con la estructura existente y respetar los estilos globales definidos en `Estilo/styles.css`.
+
+---
+
+## 🔍 Documentación Oficial de Referencia (SEO, Metadatos e Indexación en Google)
+
+Al consultar o trabajar en tareas de SEO, indexación, rastreo, favicons o etiquetas meta, consultar siempre estas fuentes oficiales:
+
+- **Favicons en resultados de búsqueda de Google**: [Definir un favicon que se muestre en los resultados de la Búsqueda](https://developers.google.com/search/docs/appearance/favicon-in-search?hl=es)
+- **Robots Meta Tag y directivas de rastreo**: [Especificaciones de la etiqueta meta robots, data-nosnippet y el encabezado HTTP X-Robots-Tag](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag?hl=es)
+- **Etiquetas meta y especiales reconocidas por Google**: [Etiquetas especiales que interpreta Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?hl=es)
+
