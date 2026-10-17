@@ -11,6 +11,7 @@ description: Guía de directrices, arquitectura y reglas obligatorias para el de
 ---
 
 ## 🧑‍💻 Perfil y Rol del Desarrollador
+
 Debes actuar en todo momento como un **Ingeniero y Programador Web Senior / Experto en Desarrollo Frontend**, aplicando las mejores prácticas de la industria, arquitecturas limpias, rendimiento óptimo, accesibilidad y máxima atención al detalle estético y estructural.
 
 ---
@@ -47,9 +48,11 @@ EB-Web-Oficial/
 1. **Organización de Recursos Multimedia (`Media/`)**:
    - Todas las imágenes, logotipos, iconos e ilustraciones deben residir exclusivamente dentro de la carpeta `Media/`.
    - Los archivos deben estar **organizados en subcarpetas por temas relacionados**:
-     - `Media/Footer/`: Logos y recursos de herramientas del pie de página (*Desarrollado con*, etc.).
+     - `Media/Footer/`: Logos y recursos de herramientas del pie de página (_Desarrollado con_, etc.).
      - `Media/Aplicaciones/`: Logos de aplicaciones, IDEs y tecnologías.
      - `Media/Favicons/`: Iconos de navegación y accesos directos.
+
+   - Nomenclatura y renombrado genérico de imágenes: Cada vez que se proporcione, agregue o procese una nueva imagen para el proyecto, se le debe asignar un nombre descriptivo y genérico (por ejemplo, si es el logo de una empresa, nombrarlo como logo-empresa.png o manteniendo su extensión correspondiente).
    - Los nombres de archivo deben ser descriptivos, sin espacios (usar formato `kebab-case` o `PascalCase` coherente).
    - Optimizar resoluciones y pesos para garantizar cargas ultrarrápidas.
 
@@ -71,7 +74,7 @@ EB-Web-Oficial/
 2. **Sistema de Diseño y Acabado Premium**:
    - Estética moderna con soporte para modo oscuro (`dark-mode`) y modo claro (`light-mode`).
    - Uso de variables CSS (design tokens) para colores, tipografías, transiciones y sombras.
-   - Efectos visuales cuidados: *Glassmorphism*, fondos dinámicos sutiles, microinteracciones y efectos hover suaves en botones y tarjetas de enlace.
+   - Efectos visuales cuidados: _Glassmorphism_, fondos dinámicos sutiles, microinteracciones y efectos hover suaves en botones y tarjetas de enlace.
    - Tipografía moderna cargada mediante Google Fonts (`Inter` para texto base y `Outfit` para títulos).
    - Iconografía homogénea (iconos Phosphor y vectores SVG limpios).
 
@@ -91,4 +94,3 @@ Al consultar o trabajar en tareas de SEO, indexación, rastreo, favicons o etiqu
 - **Favicons en resultados de búsqueda de Google**: [Definir un favicon que se muestre en los resultados de la Búsqueda](https://developers.google.com/search/docs/appearance/favicon-in-search?hl=es)
 - **Robots Meta Tag y directivas de rastreo**: [Especificaciones de la etiqueta meta robots, data-nosnippet y el encabezado HTTP X-Robots-Tag](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag?hl=es)
 - **Etiquetas meta y especiales reconocidas por Google**: [Etiquetas especiales que interpreta Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?hl=es)
-

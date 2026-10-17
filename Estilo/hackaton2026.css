@@ -1,0 +1,771 @@
+/* ==========================================================================
+   ESTILOS DEDICADOS: TALENT4CYBER 2026 (HACKATHON DE CIBERDEFENSA)
+   Paleta inspirada en https://talent4cyber.es/
+   Colores clave: #0A1628, #101C25, #85B3FF, #CEF3A6, #EC5D6F
+   ========================================================================== */
+
+:root {
+    --t4c-bg-deep: #060d17;
+    --t4c-bg-card: rgba(16, 28, 37, 0.8);
+    --t4c-bg-card-hover: rgba(22, 38, 51, 0.95);
+    --t4c-blue: #85b3ff;
+    --t4c-blue-glow: rgba(133, 179, 255, 0.35);
+    --t4c-lime: #cef3a6;
+    --t4c-lime-glow: rgba(206, 243, 166, 0.35);
+    --t4c-coral: #ec5d6f;
+    --t4c-coral-glow: rgba(236, 93, 111, 0.35);
+    --t4c-text-muted: #94a3b8;
+    --t4c-border: rgba(133, 179, 255, 0.22);
+    --t4c-border-hover: rgba(206, 243, 166, 0.5);
+    --font-mono-cyber: 'Space Mono', monospace;
+    --font-cyber: 'Space Grotesk', 'Outfit', sans-serif;
+}
+
+:root.light-mode {
+    --t4c-bg-deep: #f3f6fb;
+    --t4c-bg-card: rgba(255, 255, 255, 0.85);
+    --t4c-bg-card-hover: #ffffff;
+    --t4c-blue: #1d4ed8;
+    --t4c-blue-glow: rgba(29, 78, 216, 0.2);
+    --t4c-lime: #15803d;
+    --t4c-lime-glow: rgba(21, 128, 61, 0.2);
+    --t4c-coral: #dc2626;
+    --t4c-coral-glow: rgba(220, 38, 38, 0.2);
+    --t4c-text-muted: #475569;
+    --t4c-border: rgba(29, 78, 216, 0.18);
+    --t4c-border-hover: rgba(21, 128, 61, 0.45);
+}
+
+/* Fondo táctico militar cibernético */
+body.t4c-body {
+    background-color: var(--t4c-bg-deep);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(133, 179, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(206, 243, 166, 0.06) 0%, transparent 40%),
+        linear-gradient(rgba(133, 179, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(133, 179, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    color: var(--color-text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+:root.light-mode body.t4c-body {
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(21, 128, 61, 0.05) 0%, transparent 40%),
+        linear-gradient(rgba(29, 78, 216, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 78, 216, 0.03) 1px, transparent 1px);
+}
+
+/* Cabecera / Hero de Talent4Cyber */
+.t4c-hero {
+    padding: 8rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.t4c-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    background: rgba(133, 179, 255, 0.12);
+    border: 1px solid var(--t4c-border);
+    font-family: var(--font-mono-cyber);
+    font-size: 0.85rem;
+    color: var(--t4c-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+:root.light-mode .t4c-status-badge {
+    background: rgba(29, 78, 216, 0.08);
+}
+
+.t4c-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--t4c-lime);
+    box-shadow: 0 0 10px var(--t4c-lime);
+    animation: t4c-pulse 2s infinite ease-in-out;
+}
+
+@keyframes t4c-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.t4c-title-logo-heading {
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t4c-hero-logo {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 25px rgba(206, 243, 166, 0.25)) drop-shadow(0 0 35px rgba(133, 179, 255, 0.2));
+    transition: transform var(--transition-smooth), filter var(--transition-smooth);
+}
+
+.t4c-hero-logo:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 35px rgba(206, 243, 166, 0.45)) drop-shadow(0 0 45px rgba(133, 179, 255, 0.35));
+}
+
+:root.light-mode .t4c-hero-logo {
+    background: rgba(15, 23, 42, 0.88);
+    padding: 1.25rem 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(29, 78, 216, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    filter: none;
+}
+
+.t4c-title {
+    font-family: var(--font-cyber);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 40%, var(--t4c-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+:root.light-mode .t4c-title {
+    background: linear-gradient(135deg, #0f172a 40%, #1d4ed8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.t4c-subtitle {
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    color: var(--t4c-text-muted);
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.t4c-meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.t4c-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--t4c-bg-card);
+    border: 1px solid var(--t4c-border);
+    border-radius: 8px;
+    font-family: var(--font-mono-cyber);
+    font-size: 0.85rem;
+    color: var(--color-text-main);
+}
+
+.t4c-meta-item i {
+    color: var(--t4c-blue);
+    font-size: 1.1rem;
+}
+
+.t4c-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-t4c-primary {
+    background: var(--t4c-blue);
+    color: #060d17;
+    font-family: var(--font-cyber);
+    font-weight: 700;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 18px var(--t4c-blue-glow);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-smooth);
+    text-decoration: none;
+}
+
+.btn-t4c-primary:hover {
+    background: #a3c7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--t4c-blue-glow);
+}
+
+.btn-t4c-secondary {
+    background: rgba(133, 179, 255, 0.08);
+    color: var(--color-text-main);
+    font-family: var(--font-cyber);
+    font-weight: 600;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--t4c-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-smooth);
+    text-decoration: none;
+}
+
+.btn-t4c-secondary:hover {
+    background: rgba(133, 179, 255, 0.18);
+    border-color: var(--t4c-blue);
+    transform: translateY(-2px);
+}
+
+/* Panel de Resultados y Estadísticas */
+.t4c-stats-section {
+    max-width: 860px;
+    margin: 2rem auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.t4c-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.t4c-stat-card {
+    background: var(--t4c-bg-card);
+    border: 1px solid var(--t4c-border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.t4c-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--t4c-blue), var(--t4c-lime));
+    opacity: 0.8;
+}
+
+.t4c-stat-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--t4c-border-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.t4c-stat-card.card-highlight {
+    border-color: var(--t4c-lime);
+    box-shadow: 0 0 25px rgba(206, 243, 166, 0.15);
+}
+
+.t4c-stat-card.card-highlight::before {
+    background: linear-gradient(90deg, var(--t4c-lime), var(--t4c-blue));
+    height: 4px;
+}
+
+.t4c-stat-icon {
+    font-size: 2.2rem;
+    color: var(--t4c-blue);
+    margin-bottom: 0.8rem;
+}
+
+.card-highlight .t4c-stat-icon {
+    color: var(--t4c-lime);
+}
+
+.t4c-stat-value {
+    font-family: var(--font-mono-cyber);
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.t4c-red-arrow {
+    color: var(--t4c-coral);
+    font-size: 1.8rem;
+    display: inline-flex;
+    align-self: center;
+    filter: drop-shadow(0 0 10px var(--t4c-coral-glow));
+    animation: t4c-arrow-bounce 2s infinite ease-in-out;
+}
+
+@keyframes t4c-arrow-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+:root.light-mode .t4c-stat-value {
+    color: #0f172a;
+}
+
+.t4c-stat-unit {
+    font-size: 1rem;
+    color: var(--t4c-lime);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.t4c-stat-label {
+    font-family: var(--font-cyber);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.t4c-stat-desc {
+    font-size: 0.88rem;
+    color: var(--t4c-text-muted);
+    line-height: 1.5;
+}
+
+/* Sección de Lore & MCCE */
+/* Sección de Lore & MCCE (Texto simple sin recuadros ni etiquetas) */
+.t4c-lore-section {
+    max-width: 860px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.t4c-section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.t4c-section-title {
+    font-family: var(--font-cyber);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-main);
+}
+
+.t4c-section-subtitle {
+    font-size: 1.1rem;
+    color: var(--t4c-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Bloques de texto simple (sin bordes ni etiquetas) */
+.t4c-simple-block {
+    margin-bottom: 2.8rem;
+}
+
+.t4c-simple-block:last-child {
+    margin-bottom: 0;
+}
+
+.t4c-simple-heading {
+    font-family: var(--font-cyber);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--t4c-blue);
+    margin-bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.t4c-simple-heading i {
+    font-size: 1.5rem;
+    color: var(--t4c-lime);
+}
+
+:root.light-mode .t4c-simple-heading i {
+    color: var(--t4c-blue);
+}
+
+.t4c-simple-block p {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--color-text-main);
+    margin-bottom: 1.25rem;
+}
+
+/* Escuadrón Vertex (Solo nombres, sin descripciones ni títulos) */
+.t4c-team-section {
+    max-width: 860px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.t4c-team-simple-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.t4c-member-simple-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.8rem 1rem 1.4rem;
+    border-radius: 12px;
+    background: rgba(133, 179, 255, 0.04);
+    border: 1px solid var(--t4c-border);
+    transition: all var(--transition-smooth);
+}
+
+.t4c-member-simple-item:hover {
+    transform: translateY(-4px);
+    background: rgba(133, 179, 255, 0.08);
+    border-color: var(--t4c-blue);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+:root.light-mode .t4c-member-simple-item {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(29, 78, 216, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+:root.light-mode .t4c-member-simple-item:hover {
+    background: #ffffff;
+    border-color: var(--t4c-blue);
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.12);
+}
+
+.t4c-member-simple-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(133, 179, 255, 0.12);
+    border: 2px solid var(--t4c-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    color: var(--t4c-blue);
+    margin-bottom: 0.9rem;
+    transition: transform var(--transition-smooth), border-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+.t4c-member-simple-item:hover .t4c-member-simple-avatar {
+    transform: scale(1.08);
+    border-color: var(--t4c-lime);
+    color: var(--t4c-lime);
+}
+
+.t4c-member-simple-name {
+    font-family: var(--font-cyber);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: 0.3px;
+}
+
+.t4c-member-tag {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.55rem;
+    padding: 0.2rem 0.75rem;
+    font-family: var(--font-mono-cyber);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--t4c-lime);
+    background: rgba(206, 243, 166, 0.12);
+    border: 1px solid rgba(206, 243, 166, 0.35);
+    border-radius: 9999px;
+    box-shadow: 0 0 10px rgba(206, 243, 166, 0.15);
+}
+
+:root.light-mode .t4c-member-tag {
+    color: var(--t4c-lime);
+    background: rgba(21, 128, 61, 0.1);
+    border-color: rgba(21, 128, 61, 0.3);
+    box-shadow: none;
+}
+
+/* Sección de Herramientas y Tecnologías Utilizadas */
+.t4c-tools-section {
+    max-width: 860px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+}
+
+/* Tarjeta destacada de la Máquina Virtual Kali Linux */
+.t4c-vm-card {
+    background: var(--t4c-bg-card);
+    border: 1px solid var(--t4c-border);
+    border-radius: 14px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+}
+
+.t4c-vm-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--t4c-blue), var(--t4c-lime));
+}
+
+.t4c-vm-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--t4c-blue);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.t4c-vm-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+    background: rgba(133, 179, 255, 0.12);
+    border: 1px solid var(--t4c-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-smooth);
+}
+
+.t4c-vm-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    transition: transform var(--transition-smooth);
+}
+
+.t4c-vm-card:hover .t4c-vm-icon {
+    border-color: var(--t4c-lime);
+    background: rgba(206, 243, 166, 0.15);
+    box-shadow: 0 0 20px rgba(206, 243, 166, 0.25);
+}
+
+.t4c-vm-card:hover .t4c-vm-img {
+    transform: scale(1.08);
+}
+
+.t4c-vm-badge {
+    display: inline-block;
+    font-family: var(--font-mono-cyber);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--t4c-lime);
+    letter-spacing: 0.8px;
+    margin-bottom: 0.35rem;
+}
+
+.t4c-vm-title {
+    font-family: var(--font-cyber);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.t4c-vm-desc {
+    font-size: 0.95rem;
+    color: var(--t4c-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Grid de herramientas técnicas (solo nombres y logos) */
+.t4c-tools-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.35rem;
+}
+
+.t4c-tool-item {
+    background: var(--t4c-bg-card);
+    border: 1px solid var(--t4c-border);
+    border-radius: 12px;
+    padding: 1.6rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all var(--transition-smooth);
+}
+
+.t4c-tool-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--t4c-border-hover);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.t4c-tool-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+    background: rgba(133, 179, 255, 0.08);
+    border: 1px solid var(--t4c-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+    transition: all var(--transition-smooth);
+}
+
+.t4c-tool-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    transition: transform var(--transition-smooth);
+}
+
+.t4c-tool-item:hover .t4c-tool-icon {
+    border-color: var(--t4c-lime);
+    background: rgba(206, 243, 166, 0.15);
+    box-shadow: 0 0 18px rgba(206, 243, 166, 0.25);
+}
+
+.t4c-tool-item:hover .t4c-tool-img {
+    transform: scale(1.12);
+}
+
+.t4c-tool-title {
+    font-family: var(--font-cyber);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+/* Light mode para herramientas */
+:root.light-mode .t4c-vm-card,
+:root.light-mode .t4c-tool-item {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(29, 78, 216, 0.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+:root.light-mode .t4c-vm-card:hover,
+:root.light-mode .t4c-tool-item:hover {
+    background: #ffffff;
+    border-color: var(--t4c-blue);
+    box-shadow: 0 10px 25px rgba(29, 78, 216, 0.12);
+}
+
+:root.light-mode .t4c-vm-badge {
+    color: var(--t4c-lime);
+}
+
+/* Sección de Experiencia (Texto simple fuera de recuadros) */
+.t4c-experience-section {
+    max-width: 860px;
+    margin: 0 auto 6rem;
+    padding: 0 1.5rem;
+}
+
+.t4c-quote-box {
+    padding: 1.5rem 1.8rem;
+    border-radius: 10px;
+    background: rgba(133, 179, 255, 0.05);
+    border-left: 4px solid var(--t4c-blue);
+    font-style: italic;
+    color: var(--color-text-main);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: 1.5rem 0;
+}
+
+.t4c-quote-box i {
+    font-size: 1.6rem;
+    color: var(--t4c-blue);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.t4c-back-container {
+    text-align: center;
+    margin-top: 3.5rem;
+    border: none;
+    border-top: none;
+}
+
+/* Adaptación Responsive */
+@media (max-width: 768px) {
+    .t4c-hero {
+        padding: 6.5rem 1rem 2rem;
+    }
+
+    .t4c-team-simple-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .t4c-vm-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.8rem 1.4rem;
+    }
+
+    .t4c-vm-card::before {
+        top: 0; left: 0; right: 0; bottom: auto; width: auto; height: 3px;
+        background: linear-gradient(90deg, var(--t4c-blue), var(--t4c-lime));
+    }
+
+    .t4c-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .t4c-team-simple-list {
+        grid-template-columns: 1fr;
+    }
+
+    .t4c-tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
