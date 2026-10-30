@@ -76,6 +76,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../Scripts/translations.js" defer></script>
     <script src="../Scripts/main.js" defer></script>
     <link rel="stylesheet" href="../Estilo/styles.css">
 
@@ -86,13 +87,18 @@
         <span class="glow glow-2"></span>
     </aside>
 
-    <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
-        <i class="ph ph-moon"></i>
-    </button>
+    <section class="floating-actions">
+        <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
+            <i class="ph ph-moon"></i>
+        </button>
+        <button id="lang-toggle" class="lang-toggle-btn floating-toggle" aria-label="Cambiar idioma / Change language">
+            <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-gdg"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-gdg"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-gdg)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-gdg)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+        </button>
+    </section>
 
     <nav class="navbar scrolled">
         <section class="nav-container">
-            <a href="../index.html" class="logo"><i class="ph ph-arrow-left"></i> Volver al Inicio</a>
+            <a href="../index.html" class="logo"><i class="ph ph-arrow-left"></i> <span data-i18n="back_to_home">Volver al Inicio</span></a>
         </section>
     </nav>
 
@@ -100,138 +106,138 @@
         <header class="gdg-profile-header fade-in">
             <img src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_250,h_250,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/avatars/enrique_braquehais_de_lara_RdrUzo9.jpeg" alt="Enrique Braquehais De Lara" class="gdg-avatar">
             <h1 class="gdg-title">Enrique Braquehais De Lara</h1>
-            <p class="gdg-role">Co-Leader</p>
-            <a href="https://gdg.community.dev/u/m4pnuw/#/about" target="_blank" class="btn btn-primary">View profile <i class="ph ph-arrow-up-right"></i></a>
+            <p class="gdg-role" data-i18n="gdg_role_coleader">Co-Leader</p>
+            <a href="https://gdg.community.dev/u/m4pnuw/#/about" target="_blank" class="btn btn-primary"><span data-i18n="gdg_view_profile">View profile</span> <i class="ph ph-arrow-up-right"></i></a>
         </header>
 
         <section class="section-container gdg-bio-section fade-in">
             <article class="about-text">
-                <p class="gdg-bio-text mb-15">
+                <p class="gdg-bio-text mb-15" data-i18n="gdg_bio_p1">
                     Me incorporé al <a href="https://gdg.community.dev/gdg-on-campus-ucam-murcia-spain/" target="_blank" rel="noopener noreferrer">GDG UCAM Murcia</a> en el año 2025 con el propósito de colaborar activamente en el fortalecimiento de la comunidad tecnológica universitaria. Durante mi participación en el <span class="easter-egg-wrapper"><span id="gonzalo-easter-egg">grupo</span><span id="gonzalo-cloud" class="easter-egg-cloud gonzalo-cloud hidden"><img src="../Media/General/gafas.png" alt="Gafas pixeladas"><span>Gracias a <strong>Gonzalo DF</strong> por darme la oportunidad de pertenecer a este grupo.</span><span class="cloud-tail"></span></span></span>, he tenido el privilegio de contribuir en la planificación, gestión y en la impartición de diversos talleres técnicos de apoyo para los estudiantes.
                 </p>
-                <p class="gdg-bio-text">
+                <p class="gdg-bio-text" data-i18n="gdg_bio_p2">
                     Esta enriquecedora experiencia no solo me ha permitido perfeccionar mis habilidades de comunicación y liderazgo, sino que también me ha llevado a involucrarme en iniciativas de mayor envergadura. Entre ellas destacan mi labor como divulgador científico en la Feria de las Ciencias de Murcia 2025 y mi participación en el equipo de apoyo organizativo durante el DevFest Murcia 2026, consolidando así mi compromiso con la difusión tecnológica y el aprendizaje colaborativo.
                 </p>
             </article>
         </section>
 
         <section class="section-container gdg-container fade-in">
-            <h2 class="section-title">Trayectoria en el GDG</h2>
-            <p class="section-subtitle">Evolución y roles desempeñados en la comunidad universitaria.</p>
+            <h2 class="section-title" data-i18n="gdg_trajectory_title">Trayectoria en el GDG</h2>
+            <p class="section-subtitle" data-i18n="gdg_trajectory_subtitle">Evolución y roles desempeñados en la comunidad universitaria.</p>
             <section class="timeline">
                 <article class="timeline-item">
                     <span class="timeline-dot"></span>
                     <section class="timeline-content">
-                        <h3>Co-Leader</h3>
-                        <time class="timeline-date">Curso 2026 - 2027</time>
+                        <h3 data-i18n="gdg_role_coleader">Co-Leader</h3>
+                        <time class="timeline-date" data-i18n="gdg_term_2627">Curso 2026 - 2027</time>
                         <h4>GDG On Campus UCAM</h4>
-                        <p>Co-liderazgo de la comunidad tecnológica de estudiantes, asumiendo la coordinación general, planificación estratégica de eventos y talleres técnicos.</p>
+                        <p data-i18n="gdg_coleader_desc">Co-liderazgo de la comunidad tecnológica de estudiantes, asumiendo la coordinación general, planificación estratégica de eventos y talleres técnicos.</p>
                     </section>
                 </article>
                 <article class="timeline-item">
                     <span class="timeline-dot"></span>
                     <section class="timeline-content">
-                        <h3>Co-Organizer</h3>
-                        <time class="timeline-date">Curso 2025 - 2026</time>
+                        <h3 data-i18n="gdg_role_coorganizer">Co-Organizer</h3>
+                        <time class="timeline-date" data-i18n="gdg_term_2526">Curso 2025 - 2026</time>
                         <h4>GDG On Campus UCAM</h4>
-                        <p>Inicié como Co-Organizer en el GDG, participando activamente en la planificación de actividades, divulgación en la Feria de las Ciencias SeCyT'25, apoyo logístico en el DevFest Murcia 2026 e impartición de talleres de refuerzo.</p>
+                        <p data-i18n="gdg_coorganizer_desc">Inicié como Co-Organizer en el GDG, participando activamente en la planificación de actividades, divulgación en la Feria de las Ciencias SeCyT'25, apoyo logístico en el DevFest Murcia 2026 e impartición de talleres de refuerzo.</p>
                     </section>
                 </article>
             </section>
         </section>
 
         <section class="section-container gdg-workshops-section fade-in">
-            <h2 class="section-title">Talleres en los que he participado</h2>
+            <h2 class="section-title" data-i18n="gdg_workshops_title">Talleres en los que he participado</h2>
             <section class="projects-grid gdg-workshops-grid">
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-coffee"></i></figure>
                     <time class="project-card-date">2025</time>
                     <h3>Taller de Refuerzo POO Parte II</h3>
-                    <p>Segunda sesión práctica sobre Programación Orientada a Objetos.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-refuerzo-poo/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_poo2_desc">Segunda sesión práctica sobre Programación Orientada a Objetos.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-refuerzo-poo/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-share-network"></i></figure>
                     <time class="project-card-date">2025</time>
                     <h3>Taller Programación Paralela Parte II</h3>
-                    <p>Sesión técnica enfocada en técnicas de paralelismo algorítmico.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-programacion-paralela/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_paralela2_desc">Sesión técnica enfocada en técnicas de paralelismo algorítmico.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-programacion-paralela/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-terminal-window"></i></figure>
                     <time class="project-card-date">2025</time>
                     <h3>Taller de Programación I</h3>
-                    <p>Repaso y preparación de fundamentos para el primer parcial.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-de-programacion-i-refuerzo-primer-parcial/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_prog1_desc">Repaso y preparación de fundamentos para el primer parcial.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-de-programacion-i-refuerzo-primer-parcial/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-coffee"></i></figure>
                     <time class="project-card-date">2025</time>
                     <h3>Taller de Refuerzo POO Parte I</h3>
-                    <p>Primera sesión práctica sobre Programación Orientada a Objetos.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-catholic-university-of-murcia-presents-taller-de-refuerzo-poo/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_poo1_desc">Primera sesión práctica sobre Programación Orientada a Objetos.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-catholic-university-of-murcia-presents-taller-de-refuerzo-poo/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-network"></i></figure>
                     <time class="project-card-date">2025</time>
                     <h3>Taller de refuerzo Programación Paralela Parte I</h3>
-                    <p>Sesión complementaria de GDG para asegurar conocimientos técnicos.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-catholic-university-of-murcia-presents-taller-de-refuerzo-programacion-paralela/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_paralela1_desc">Sesión complementaria de GDG para asegurar conocimientos técnicos.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-catholic-university-of-murcia-presents-taller-de-refuerzo-programacion-paralela/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-cpu"></i></figure>
                     <time class="project-card-date">2026</time>
                     <h3>Taller de MIPS</h3>
-                    <p>Refuerzo de conocimientos en la arquitectura MIPS y ejercicios prácticos de procesadores.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-mips/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_mips_desc">Refuerzo de conocimientos en la arquitectura MIPS y ejercicios prácticos de procesadores.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-mips/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-share-network"></i></figure>
                     <time class="project-card-date">2026</time>
                     <h3>Taller de Programación Paralela</h3>
-                    <p>Repaso y preparación para el 1er Parcial enfocado en OpenMP (OMP).</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-de-programacion-paralela/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_paralela2026_desc">Repaso y preparación para el 1er Parcial enfocado en OpenMP (OMP).</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-de-programacion-paralela/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card gdg-workshop-card">
                     <figure class="project-icon"><i class="ph ph-plugs-connected"></i></figure>
                     <time class="project-card-date">2026</time>
                     <h3>Taller de DAD I</h3>
-                    <p>Preparación para el 1er Parcial: concurrencia con hilos (Thread, Runnable) y comunicación cliente-servidor con Sockets.</p>
-                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-de-dad-i/" target="_blank" class="project-link">Ver página del evento <i class="ph ph-arrow-up-right"></i></a>
+                    <p data-i18n="gdg_w_dad1_desc">Preparación para el 1er Parcial: concurrencia con hilos (Thread, Runnable) y comunicación cliente-servidor con Sockets.</p>
+                    <a href="https://gdg.community.dev/events/details/google-gdg-on-campus-ucam-murcia-spain-presents-taller-de-dad-i/" target="_blank" class="project-link"><span data-i18n="gdg_event_link">Ver página del evento</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
             </section>
         </section>
 
         <section class="section-container gdg-workshops-section fade-in">
-            <h2 class="section-title">Experiencias y Eventos</h2>
-            <p class="section-subtitle">Hitos destacados, divulgación y participación en la comunidad.</p>
+            <h2 class="section-title" data-i18n="gdg_exp_title">Experiencias y Eventos</h2>
+            <p class="section-subtitle" data-i18n="gdg_exp_subtitle">Hitos destacados, divulgación y participación en la comunidad.</p>
             
             <section class="articles-grid gdg-events-grid">
                 <article class="project-card">
                     <figure class="project-icon"><i class="ph ph-calendar-star"></i></figure>
                     <h3>DevFest Murcia 2026</h3>
-                    <p>Como miembro del GDG On Campus UCAM, tuve la oportunidad de ayudar en el evento y fue un lujo presentar al equipo de DGMakers y su proyecto Code 4Help. Un día increíble disfrutando de infinitas ponencias y talleres de Genkit y Gemini con apasionados de la tecnología de todas partes.</p>
+                    <p data-i18n="gdg_devfest_desc">Como miembro del GDG On Campus UCAM, tuve la oportunidad de ayudar en el evento y fue un lujo presentar al equipo de DGMakers y su proyecto Code 4Help. Un día increíble disfrutando de infinitas ponencias y talleres de Genkit y Gemini con apasionados de la tecnología de todas partes.</p>
                     <aside class="project-tags">
                         <span>DevFest</span><span>GDG</span><span>Networking</span>
                     </aside>
-                    <a href="https://www.linkedin.com/posts/enrique-braquehais-de-lara-6140a1268_ayer-estuve-en-el-devfest-murcia-2026-y-la-share-7425246965459853314--R8F" target="_blank" class="project-link">Leer narración en LinkedIn <i class="ph ph-arrow-up-right"></i></a>
+                    <a href="https://www.linkedin.com/posts/enrique-braquehais-de-lara-6140a1268_ayer-estuve-en-el-devfest-murcia-2026-y-la-share-7425246965459853314--R8F" target="_blank" class="project-link"><span data-i18n="gdg_devfest_link">Leer narración en LinkedIn</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
 
                 <article class="project-card">
                     <figure class="project-icon"><i class="ph ph-flask"></i></figure>
                     <h3>Semana de las Ciencias (SeCyT'25) - UCAM</h3>
-                    <p>Participé como divulgador en el Stand de Inteligencia Artificial. Utilizamos creatividad y vídeos generados por IA (#Suno, #NotebookLM) para enganchar a adultos y niños, explicando de forma lúdica y práctica el inmenso potencial de la tecnología en campos vitales como la educación y la salud.</p>
+                    <p data-i18n="gdg_secyt_desc">Participé como divulgador en el Stand de Inteligencia Artificial. Utilizamos creatividad y vídeos generados por IA (#Suno, #NotebookLM) para enganchar a adultos y niños, explicando de forma lúdica y práctica el inmenso potencial de la tecnología en campos vitales como la educación y la salud.</p>
                     <aside class="project-tags">
                         <span>Divulgación</span><span>IA</span>
                     </aside>
-                    <a href="https://www.linkedin.com/posts/enrique-braquehais-de-lara-6140a1268_notebooklm-suno-ucam-ugcPost-7404233321435582465-E3Ev" target="_blank" class="project-link">Leer experiencia en LinkedIn <i class="ph ph-arrow-up-right"></i></a>
+                    <a href="https://www.linkedin.com/posts/enrique-braquehais-de-lara-6140a1268_notebooklm-suno-ucam-ugcPost-7404233321435582465-E3Ev" target="_blank" class="project-link"><span data-i18n="gdg_secyt_link">Leer experiencia en LinkedIn</span> <i class="ph ph-arrow-up-right"></i></a>
                 </article>
             </section>
         </section>
@@ -246,9 +252,9 @@
                 <a href="https://instagram.com/enrique__bl" target="_blank" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
                 <a href="https://youtube.com/@enrique_bdl" target="_blank" title="YouTube"><i class="ph ph-youtube-logo"></i></a>
             </nav>
-            <p>&copy; 2026 EnriqueBDL.</p>
+            <p data-i18n="all_rights_reserved">&copy; 2026 EnriqueBDL.</p>
             <section class="developed-by">
-                <span>Desarrollado con</span>
+                <span data-i18n="developed_with">Desarrollado con</span>
                 <section class="tool-logos">
                     <a href="https://formspree.io" target="_blank" title="Formspree">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Formspree</title><path d="M1.333 2a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.857a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm0 8.571a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.858a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm2 6.572a2 2 0 0 0-2 2V22a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2.857a2 2 0 0 0-2-2z"/></svg>

@@ -22,6 +22,7 @@ El repositorio sigue una estricta separación de responsabilidades en sus direct
 
 ```text
 EB-Web-Oficial/
+├── _config.yml                  # Configuración de Jekyll (permalink para URLs limpias sin extensión)
 ├── 404.html                     # Página de error 404 personalizada
 ├── index.html                   # Página principal y portfolio
 ├── AGENTS.md                    # Reglas obligatorias para el agente
@@ -82,8 +83,18 @@ EB-Web-Oficial/
 
 ## 🌐 Idioma y Convenciones
 
-1. **Idioma Principal**: El idioma principal del proyecto, textos de interfaz, contenidos, comentarios y explicaciones técnicas es el **Español** (con el Inglés como soporte secundario si aplica).
+1. **Idioma y Soporte Bilingüe**: El proyecto cuenta con soporte bilingüe en Español (por defecto) e Inglés mediante el selector de idioma y el diccionario reactivo en `Scripts/main.js` (con persistencia en `localStorage` y atributos semánticos `data-i18n`). Todos los textos y secciones deben mantener consistencia en ambos idiomas.
 2. **Consistencia**: Cualquier cambio debe mantener la armonía con la estructura existente y respetar los estilos globales definidos en `Estilo/styles.css`.
+
+---
+
+## 🚀 Despliegue en GitHub Pages y URLs Limpias (`_config.yml`)
+
+Para ocultar las extensiones `.html` en los enlaces y rutas del sitio desplegado en GitHub Pages, el archivo `_config.yml` en la raíz define la directriz de permalinks:
+```yaml
+permalink: /:title/
+```
+Cualquier nueva vista o página debe contemplar esta configuración para garantizar URLs limpias y legibles.
 
 ---
 

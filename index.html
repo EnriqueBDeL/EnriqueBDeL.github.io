@@ -82,6 +82,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="Scripts/translations.js" defer></script>
     <script src="Scripts/main.js" defer></script>
     <link rel="stylesheet" href="Estilo/styles.css">
 </head>
@@ -96,15 +97,18 @@
             <a href="#" class="logo">EnriqueBDL</a>
             <section class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="#quien-soy">Quién soy</a></li>
-                    <li><a href="#estudios">Estudios</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#actividad">Actividad</a></li>
-                    <li><a href="#articulos">Artículos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#quien-soy" data-i18n="nav_about">Quién soy</a></li>
+                    <li><a href="#estudios" data-i18n="nav_studies">Estudios</a></li>
+                    <li><a href="#proyectos" data-i18n="nav_projects">Proyectos</a></li>
+                    <li><a href="#actividad" data-i18n="nav_activity">Actividad</a></li>
+                    <li><a href="#articulos" data-i18n="nav_articles">Artículos</a></li>
+                    <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
                 </ul>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
                     <i class="ph ph-moon"></i>
+                </button>
+                <button id="lang-toggle" class="lang-toggle-btn" aria-label="Cambiar idioma / Change language">
+                    <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="flag-s-index"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="flag-t-index"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#flag-s-index)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#flag-t-index)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
                 </button>
             </section>
         </section>
@@ -113,22 +117,22 @@
     <main>
         <section id="hero" class="hero fade-in">
             <header class="hero-content">
-                <h1 class="hero-title">Hola, soy <span class="highlight">Enrique</span></h1>
-                <p class="hero-subtitle">Estudiante de Ingeniería Informática en la UCAM. Apasionado por las nuevas tecnologías y en constante aprendizaje para dar forma al futuro.</p>
+                <h1 class="hero-title" data-i18n="hero_title">Hola, soy <span class="highlight">Enrique</span></h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Estudiante de Ingeniería Informática en la UCAM. Apasionado por las nuevas tecnologías y en constante aprendizaje para dar forma al futuro.</p>
                 <nav class="hero-cta">
-                    <a href="#proyectos" class="btn btn-primary">Ver mis proyectos <i class="ph ph-arrow-right"></i></a>
+                    <a href="#proyectos" class="btn btn-primary"><span data-i18n="hero_cta">Ver mis proyectos</span> <i class="ph ph-arrow-right"></i></a>
                 </nav>
             </header>
         </section>
 
         <section id="quien-soy" class="section fade-in">
             <article class="section-container">
-                <h2 class="section-title">Quién soy</h2>
+                <h2 class="section-title" data-i18n="about_title">Quién soy</h2>
                 <section class="about-grid">
                     <article class="about-text">
-                        <p>Soy <strong>Enrique Braquehais <span id="easter-egg-trigger">D</span>e Lara</strong>, estudiante de Ingeniería Informática en la <strong>UCAM</strong>, apasionado por el mundo de las nuevas tecnologías y su capacidad para transformar nuestro día a día. Mi curiosidad y entusiasmo por este campo me impulsan a estar siempre al tanto de las innovaciones que están dando forma al futuro.</p>
-                        <p>Mi objetivo es aplicar estos conocimientos para contribuir al desarrollo de tecnologías que no solo sean avanzadas, sino también accesibles y útiles para todos.</p>
-                        <p>Me encuentro en constante aprendizaje y abierto a oportunidades que me permitan seguir creciendo y colaborando en proyectos que impulsen el progreso tecnológico, apoyando también estas iniciativas como parte del <a href="https://gdg.community.dev/gdg-on-campus-ucam-murcia-spain/" target="_blank" rel="noopener noreferrer">GDG UCAM Murcia</a>, al que me uní en el año 2025.</p>
+                        <p data-i18n="about_p1">Soy <strong>Enrique Braquehais <span id="easter-egg-trigger">D</span>e Lara</strong>, estudiante de Ingeniería Informática en la <strong>UCAM</strong>, apasionado por el mundo de las nuevas tecnologías y su capacidad para transformar nuestro día a día. Mi curiosidad y entusiasmo por este campo me impulsan a estar siempre al tanto de las innovaciones que están dando forma al futuro.</p>
+                        <p data-i18n="about_p2">Mi objetivo es aplicar estos conocimientos para contribuir al desarrollo de tecnologías que no solo sean avanzadas, sino también accesibles y útiles para todos.</p>
+                        <p data-i18n="about_p3">Me encuentro en constante aprendizaje y abierto a oportunidades que me permitan seguir creciendo y colaborando en proyectos que impulsen el progreso tecnológico, apoyando también estas iniciativas como parte del <a href="https://gdg.community.dev/gdg-on-campus-ucam-murcia-spain/" target="_blank" rel="noopener noreferrer">GDG UCAM Murcia</a>, al que me uní en el año 2025.</p>
                         <nav class="social-links">
                             <a href="https://github.com/EnriqueBDeL" target="_blank" title="GitHub"><i class="ph ph-github-logo"></i></a>
                             <a href="https://www.linkedin.com/in/enrique-braquehais-de-lara-6140a1268" target="_blank" title="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
@@ -148,25 +152,25 @@
 
         <section id="estudios" class="section fade-in">
             <article class="section-container">
-                <h2 class="section-title">Estudios</h2>
+                <h2 class="section-title" data-i18n="studies_title">Estudios</h2>
                 <section class="timeline">
                     <article class="timeline-item">
                         <span class="timeline-dot"></span>
                         <section class="timeline-content">
-                            <h3>Grado en Ingeniería Informática</h3>
-                            <time class="timeline-date">Actualidad</time>
+                            <h3 data-i18n="studies_degree_title">Grado en Ingeniería Informática</h3>
+                            <time class="timeline-date" data-i18n="studies_current">Actualidad</time>
                             <h4>Universidad Católica San Antonio de Murcia (UCAM)</h4>
-                            <p>Formación integral en desarrollo de software, algoritmos, arquitectura de computadores y bases de datos. Adquiriendo una sólida base analítica y habilidades prácticas en diversos lenguajes como C, Java, SQL y Ensamblador.</p>
-                            <a href="Estructura/universidad.html" class="btn btn-primary timeline-cta-btn">Saber más <i class="ph ph-arrow-right"></i></a>
+                            <p data-i18n="studies_degree_desc">Formación integral en desarrollo de software, algoritmos, arquitectura de computadores y bases de datos. Adquiriendo una sólida base analítica y habilidades prácticas en diversos lenguajes como C, Java, SQL y Ensamblador.</p>
+                            <a href="Estructura/universidad.html" class="btn btn-primary timeline-cta-btn"><span data-i18n="studies_learn_more">Saber más</span> <i class="ph ph-arrow-right"></i></a>
                         </section>
                     </article>
                     <article class="timeline-item">
                         <span class="timeline-dot"></span>
                         <section class="timeline-content">
-                            <h3>Bachillerato de Ciencias</h3>
-                            <time class="timeline-date">Previamente</time>
+                            <h3 data-i18n="studies_hs_title">Bachillerato de Ciencias</h3>
+                            <time class="timeline-date" data-i18n="studies_hs_date">Previamente</time>
                             <h4>Maristas Cartagena</h4>
-                            <p>Formación académica centrada en las materias de la rama científico-tecnológica, desarrollando una fuerte base analítica y lógica que impulsó el interés por la programación e informática.</p>
+                            <p data-i18n="studies_hs_desc">Formación académica centrada en las materias de la rama científico-tecnológica, desarrollando una fuerte base analítica y lógica que impulsó el interés por la programación e informática.</p>
                         </section>
                     </article>
                 </section>
@@ -175,15 +179,15 @@
 
         <section id="proyectos" class="section fade-in">
             <article class="section-container">
-                <h2 class="section-title">Proyectos Destacados</h2>
-                <p class="section-subtitle">Colección de proyectos y desarrollos destacados clasificados por creaciones propias y trabajos universitarios.</p>
+                <h2 class="section-title" data-i18n="projects_title">Proyectos Destacados</h2>
+                <p class="section-subtitle" data-i18n="projects_subtitle">Colección de proyectos y desarrollos destacados clasificados por creaciones propias y trabajos universitarios.</p>
 
                 <!-- Carrusel 1: Creaciones Propias -->
                 <section class="projects-carousel-wrapper">
                     <header class="carousel-section-header">
                         <section class="carousel-heading-group">
-                            <h3 class="carousel-section-title"><i class="ph ph-sparkle"></i> Creaciones Propias</h3>
-                            <p class="carousel-section-desc">Proyectos de software, herramientas y aplicaciones de iniciativa personal.</p>
+                            <h3 class="carousel-section-title"><i class="ph ph-sparkle"></i> <span data-i18n="projects_own_title">Creaciones Propias</span></h3>
+                            <p class="carousel-section-desc" data-i18n="projects_own_desc">Proyectos de software, herramientas y aplicaciones de iniciativa personal.</p>
                         </section>
                     </header>
 
@@ -197,41 +201,41 @@
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-chart-line-up"></i></figure>
                                     <h3>Stats API</h3>
-                                    <p>API RESTful orientada a la recopilación, procesamiento y análisis dinámico de estadísticas y métricas.</p>
+                                    <p data-i18n="project_stats_desc">API RESTful orientada a la recopilación, procesamiento y análisis dinámico de estadísticas y métricas.</p>
                                     <aside class="project-tags">
                                         <span>API</span><span>Python</span><span>Flask</span><span>Backend</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/stats-api" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/stats-api" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-shield-check"></i></figure>
                                     <h3>Python Library Detection & Runtime Auditor</h3>
-                                    <p>Herramienta técnica de auditoría para la detección, inspección y validación de librerías y dependencias en entornos de ejecución Python.</p>
+                                    <p data-i18n="project_auditor_desc">Herramienta técnica de auditoría para la detección, inspección y validación de librerías y dependencias en entornos de ejecución Python.</p>
                                     <aside class="project-tags">
                                         <span>Python</span><span>Auditoría</span><span>Seguridad</span><span>Runtime</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Python-Library-Detection-Runtime-Auditor" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Python-Library-Detection-Runtime-Auditor" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-sliders-horizontal"></i></figure>
                                     <h3>Lantern Monitor Controller</h3>
-                                    <p>Sistema de control, monitoreo en tiempo real y supervisión de estado operativo para controladores y servicios Lantern.</p>
+                                    <p data-i18n="project_lantern_desc">Sistema de control, monitoreo en tiempo real y supervisión de estado operativo para controladores y servicios Lantern.</p>
                                     <aside class="project-tags">
                                         <span>Python</span><span>Control</span><span>Monitorización</span><span>IoT</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Lantern-Monitor-Controller" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Lantern-Monitor-Controller" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-globe"></i></figure>
                                     <h3>EB Web</h3>
-                                    <p>Sitio web y portfolio personal oficial de ingeniería informática, con arquitectura semántica HTML5, modo oscuro/claro y alto rendimiento.</p>
+                                    <p data-i18n="project_ebweb_desc">Sitio web y portfolio personal oficial de ingeniería informática, con arquitectura semántica HTML5, modo oscuro/claro y alto rendimiento.</p>
                                     <aside class="project-tags">
                                         <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Portfolio</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/EnriqueBDeL.github.io" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/EnriqueBDeL.github.io" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
                             </section>
                         </section>
@@ -246,8 +250,8 @@
                 <section class="projects-carousel-wrapper">
                     <header class="carousel-section-header">
                         <section class="carousel-heading-group">
-                            <h3 class="carousel-section-title"><i class="ph ph-graduation-cap"></i> Proyectos Universitarios</h3>
-                            <p class="carousel-section-desc">Trabajos prácticos, aplicaciones y arquitecturas desarrolladas durante el Grado en Ingeniería Informática.</p>
+                            <h3 class="carousel-section-title"><i class="ph ph-graduation-cap"></i> <span data-i18n="projects_uni_title">Proyectos Universitarios</span></h3>
+                            <p class="carousel-section-desc" data-i18n="projects_uni_desc">Trabajos prácticos, aplicaciones y arquitecturas desarrolladas durante el Grado en Ingeniería Informática.</p>
                         </section>
                     </header>
 
@@ -261,111 +265,111 @@
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-game-controller"></i></figure>
                                     <h3>RJE Gaming Hub</h3>
-                                    <p>Trabajo Final de Programación Visual Avanzada (PVA). Plataforma integral tipo lanzador y hub para la gestión centralizada de videojuegos.</p>
+                                    <p data-i18n="project_rje_desc">Trabajo Final de Programación Visual Avanzada (PVA). Plataforma integral tipo lanzador y hub para la gestión centralizada de videojuegos.</p>
                                     <aside class="project-tags">
                                         <span>PVA</span><span>C# / .NET</span><span>GUI</span><span>Gaming</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/RJE-Gaming-Hub--Trabajo_Final_PVA-" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/RJE-Gaming-Hub--Trabajo_Final_PVA-" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-cpu"></i></figure>
                                     <h3>Prog. Paralela 24-25</h3>
-                                    <p>Trabajo Final de Programación Paralela (2024–2025). Algoritmos de alto rendimiento optimizados con OpenMP y paralelismo computacional.</p>
+                                    <p data-i18n="project_paralela_2425_desc">Trabajo Final de Programación Paralela (2024–2025). Algoritmos de alto rendimiento optimizados con OpenMP y paralelismo computacional.</p>
                                     <aside class="project-tags">
                                         <span>Paralela</span><span>C / C++</span><span>OpenMP</span><span>HPC</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-Programacion-Paralela-2024--2025" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-Programacion-Paralela-2024--2025" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-shopping-cart"></i></figure>
                                     <h3>RDE Solutions</h3>
-                                    <p>Trabajo Final de Sistemas de Gestión de la Información (SGI). Sistema empresarial de catálogo, pedidos y gestión de inventario.</p>
+                                    <p data-i18n="project_rde_desc">Trabajo Final de Sistemas de Gestión de la Información (SGI). Sistema empresarial de catálogo, pedidos y gestión de inventario.</p>
                                     <aside class="project-tags">
                                         <span>SGI</span><span>Gestión</span><span>BBDD</span><span>Empresa</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/RDE-Solutions--Trabajo-Final-SGI" target="_blank" rel="noopener noreferrer" class="project-link">Ver proyecto <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/RDE-Solutions--Trabajo-Final-SGI" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_project">Ver proyecto</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-brain"></i></figure>
                                     <h3>Sistemas Inteligentes</h3>
-                                    <p>Práctica Final de Inteligencia Artificial centrada en algoritmos de búsqueda heurística, optimización y toma de decisiones.</p>
+                                    <p data-i18n="project_si_desc">Práctica Final de Inteligencia Artificial centrada en algoritmos de búsqueda heurística, optimización y toma de decisiones.</p>
                                     <aside class="project-tags">
                                         <span>IA</span><span>Heurística</span><span>Algoritmos</span><span>Sistemas Inteligentes</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Practica-Final-Sistemas-Inteligentes" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Practica-Final-Sistemas-Inteligentes" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-clock"></i></figure>
                                     <h3>Cronixis</h3>
-                                    <p>Trabajo Final de Soluciones Informáticas para la Empresa (SIE). Plataforma de gestión, asignación de tareas y planificación temporal.</p>
+                                    <p data-i18n="project_cronixis_desc">Trabajo Final de Soluciones Informáticas para la Empresa (SIE). Plataforma de gestión, asignación de tareas y planificación temporal.</p>
                                     <aside class="project-tags">
                                         <span>SIE</span><span>Productividad</span><span>Planificación</span><span>Empresa</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Cronixis--Trabajo-Final-SIE" target="_blank" rel="noopener noreferrer" class="project-link">Ver proyecto <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Cronixis--Trabajo-Final-SIE" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_project">Ver proyecto</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-soccer-ball"></i></figure>
                                     <h3>App Club Football</h3>
-                                    <p>Trabajo Final de Programación Orientada a Objetos (POO). Sistema estructurado para la administración deportiva de plantillas y clubes.</p>
+                                    <p data-i18n="project_football_desc">Trabajo Final de Programación Orientada a Objetos (POO). Sistema estructurado para la administración deportiva de plantillas y clubes.</p>
                                     <aside class="project-tags">
                                         <span>POO</span><span>Java</span><span>Patrones de Diseño</span><span>Gestión</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-POO" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-POO" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-network"></i></figure>
                                     <h3>Trabajo Final DAD1</h3>
-                                    <p>Trabajo Final de Desarrollo de Aplicaciones Distribuidas 1. Comunicación en red distribuida y arquitectura cliente-servidor mediante sockets.</p>
+                                    <p data-i18n="project_dad1_desc">Trabajo Final de Desarrollo de Aplicaciones Distribuidas 1. Comunicación en red distribuida y arquitectura cliente-servidor mediante sockets.</p>
                                     <aside class="project-tags">
                                         <span>DAD1</span><span>Sockets</span><span>Java</span><span>Distribuido</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-DAD1" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-DAD1" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-plugs-connected"></i></figure>
                                     <h3>Práctica RMI</h3>
-                                    <p>Sistema distribuido basado en Remote Method Invocation (RMI) en Java para invocación y concurrencia de métodos remotos.</p>
+                                    <p data-i18n="project_rmi_desc">Sistema distribuido basado en Remote Method Invocation (RMI) en Java para invocación y concurrencia de métodos remotos.</p>
                                     <aside class="project-tags">
                                         <span>Java RMI</span><span>Distribuido</span><span>RPC</span><span>Concurrencia</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Practica-RMI" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Practica-RMI" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-tree-structure"></i></figure>
                                     <h3>Proyecto Final DAD2</h3>
-                                    <p>Trabajo Final de Desarrollo de Aplicaciones Distribuidas 2. Arquitectura orientada a servicios, persistencia y comunicación distribuida avanzada.</p>
+                                    <p data-i18n="project_dad2_desc">Trabajo Final de Desarrollo de Aplicaciones Distribuidas 2. Arquitectura orientada a servicios, persistencia y comunicación distribuida avanzada.</p>
                                     <aside class="project-tags">
                                         <span>DAD2</span><span>Arquitectura Distribuida</span><span>Backend</span><span>Servicios</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Proyecto-Final-DAD2" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Proyecto-Final-DAD2" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-cloud-check"></i></figure>
                                     <h3>Proyecto Final DAD2 SW-REST</h3>
-                                    <p>Implementación de servicios web RESTful distribuidos con contratos de API, autenticación y persistencia de datos.</p>
+                                    <p data-i18n="project_dad2_rest_desc">Implementación de servicios web RESTful distribuidos con contratos de API, autenticación y persistencia de datos.</p>
                                     <aside class="project-tags">
                                         <span>DAD2</span><span>REST API</span><span>Web Services</span><span>HTTP / JSON</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Proyecto-Final-DAD2-SW-REST" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Proyecto-Final-DAD2-SW-REST" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
 
                                 <article class="project-card">
                                     <figure class="project-icon"><i class="ph ph-lightning"></i></figure>
                                     <h3>Prog. Paralela 25-26</h3>
-                                    <p>Trabajo Final de Programación Paralela (2025–2026). Aceleración computacional avanzada sobre GPU con CUDA y optimizaciones en memoria compartida.</p>
+                                    <p data-i18n="project_paralela_2526_desc">Trabajo Final de Programación Paralela (2025–2026). Aceleración computacional avanzada sobre GPU con CUDA y optimizaciones en memoria compartida.</p>
                                     <aside class="project-tags">
                                         <span>Paralela</span><span>CUDA</span><span>OpenMP</span><span>GPU Computing</span>
                                     </aside>
-                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-Programacion-Paralela-2025--2026" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositorio <i class="ph ph-arrow-up-right"></i></a>
+                                    <a href="https://github.com/EnriqueBDeL/Trabajo-Final-Programacion-Paralela-2025--2026" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="projects_view_repo">Ver repositorio</span> <i class="ph ph-arrow-up-right"></i></a>
                                 </article>
                             </section>
                         </section>
@@ -380,27 +384,28 @@
 
         <section id="actividad" class="section fade-in">
             <article class="section-container">
-                <h2 class="section-title">Actividad</h2>
-                <p class="section-subtitle">Aspectos destacados sobre mi participación en la comunidad tecnológica y otros hitos.</p>
+                <h2 class="section-title" data-i18n="activity_title">Actividad</h2>
+                <p class="section-subtitle" data-i18n="activity_subtitle">Aspectos destacados sobre mi participación en la comunidad tecnológica y otros hitos.</p>
                 <section class="projects-grid">
                     <article class="project-card">
                         <figure class="project-icon"><i class="ph ph-shield-check"></i></figure>
                         <time class="project-card-date">2026</time>
                         <h3>Talent4Cyber 2026 <br> Equipo Vertex (UCAM)</h3>
-                        <p>Participé en el hackathon nacional de ciberdefensa del Mando Conjunto del Ciberespacio (MCCE), compitiendo en representación de la UCAM junto a mi equipo Vertex y alcanzando 108 puntos.</p>
+                        <p data-i18n="activity_t4c_p">Participé en el hackathon nacional de ciberdefensa del Mando Conjunto del Ciberespacio (MCCE), compitiendo en representación de la UCAM junto a mi equipo Vertex y alcanzando 108 puntos.</p>
                         <aside class="project-tags">
                             <span>Ciberdefensa</span><span>Hackathon</span><span>Vertex</span>
                         </aside>
-                        <a href="Estructura/hackaton2026.html" class="project-link">Ver experiencia en el hackathon <i class="ph ph-arrow-right"></i></a>
+                        <a href="Estructura/hackaton2026.html" class="project-link"><span data-i18n="activity_t4c_link">Ver experiencia en el hackathon</span> <i class="ph ph-arrow-right"></i></a>
                     </article>
                     <article class="project-card">
                         <figure class="project-icon"><i class="ph ph-users-three"></i></figure>
+                        <time class="project-card-date">2026</time>
                         <h3>Co-Leader <br> GDG On Campus UCAM</h3>
-                        <p>Co-lidero la comunidad, coordinando la planificación de eventos, charlas y talleres técnicos del Google Developer Group de la UCAM, ayudando a fomentar y hacer crecer la comunidad tecnológica universitaria.</p>
+                        <p data-i18n="activity_gdg_p">Co-lidero la comunidad, coordinando la planificación de eventos, charlas y talleres técnicos del Google Developer Group de la UCAM, ayudando a fomentar y hacer crecer la comunidad tecnológica universitaria.</p>
                         <aside class="project-tags">
                             <span>Comunidad</span><span>GDGoC</span>
                         </aside>
-                        <a href="Estructura/gdg.html" class="project-link">Ver mi perfil en el GDG <i class="ph ph-arrow-right"></i></a>
+                        <a href="Estructura/gdg.html" class="project-link"><span data-i18n="activity_gdg_link">Ver mi perfil en el GDG</span> <i class="ph ph-arrow-right"></i></a>
                     </article>
                 </section>
             </article>
@@ -408,13 +413,13 @@
 
         <section id="articulos" class="section fade-in">
             <article class="section-container">
-                <h2 class="section-title">Artículos</h2>
+                <h2 class="section-title" data-i18n="articles_title">Artículos</h2>
                 <section class="articles-grid">
                     <article class="article-placeholder">
                         <section class="article-content">
-                            <time class="article-date">Próximamente</time>
-                            <h3>Espacio para futuros artículos</h3>
-                            <p>Aquí publicaré mis investigaciones, reflexiones y guías sobre desarrollo, tecnología y mi experiencia como estudiante de ingeniería.</p>
+                            <time class="article-date" data-i18n="articles_coming_soon">Próximamente</time>
+                            <h3 data-i18n="articles_placeholder_h3">Espacio para futuros artículos</h3>
+                            <p data-i18n="articles_placeholder_p">Aquí publicaré mis investigaciones, reflexiones y guías sobre desarrollo, tecnología y mi experiencia como estudiante de ingeniería.</p>
                         </section>
                     </article>
                 </section>
@@ -423,27 +428,27 @@
 
         <section id="contacto" class="section fade-in">
             <article class="section-container">
-                <h2 class="section-title">Contacto</h2>
-                <p class="section-subtitle">¿Tienes alguna pregunta o propuesta? Escríbeme y me pondré en contacto contigo lo antes posible.</p>
+                <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
+                <p class="section-subtitle" data-i18n="contact_subtitle">¿Tienes alguna pregunta o propuesta? Escríbeme y me pondré en contacto contigo lo antes posible.</p>
                 <section class="contact-container">
                     <form action="https://formspree.io/f/xbdnbegb" method="POST" class="contact-form">
                         <section class="form-group">
-                            <label for="name" class="form-label">Nombre</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required>
+                            <label for="name" class="form-label" data-i18n="contact_name_label">Nombre</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" data-i18n-ph="contact_name_ph" required>
                         </section>
                         <section class="form-group">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" id="email" name="_replyto" class="form-input" placeholder="tu@email.com" required>
+                            <label for="email" class="form-label" data-i18n="contact_email_label">Correo electrónico</label>
+                            <input type="email" id="email" name="_replyto" class="form-input" placeholder="tu@email.com" data-i18n-ph="contact_email_ph" required>
                         </section>
                         <section class="form-group">
-                            <label for="subject" class="form-label">Asunto</label>
-                            <input type="text" id="subject" name="subject" class="form-input" placeholder="¿De qué trata tu mensaje?" required>
+                            <label for="subject" class="form-label" data-i18n="contact_subject_label">Asunto</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="¿De qué trata tu mensaje?" data-i18n-ph="contact_subject_ph" required>
                         </section>
                         <section class="form-group">
-                            <label for="message" class="form-label">Mensaje</label>
-                            <textarea id="message" name="message" class="form-textarea" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            <label for="message" class="form-label" data-i18n="contact_message_label">Mensaje</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Escribe tu mensaje aquí..." data-i18n-ph="contact_message_ph" required></textarea>
                         </section>
-                        <button type="submit" class="btn btn-primary form-btn">Enviar mensaje <i class="ph ph-paper-plane-tilt"></i></button>
+                        <button type="submit" class="btn btn-primary form-btn"><span data-i18n="contact_submit_btn">Enviar mensaje</span> <i class="ph ph-paper-plane-tilt"></i></button>
                     </form>
                 </section>
             </article>
@@ -460,9 +465,9 @@
                 <a href="https://youtube.com/@enrique_bdl" target="_blank" title="YouTube"><i class="ph ph-youtube-logo"></i></a>
                 <a href="https://enriquebdl.taplink.ws/" target="_blank" title="Taplink"><i class="ph ph-link"></i></a>
             </nav>
-            <p>&copy; 2026 EnriqueBDL. </p>
+            <p data-i18n="all_rights_reserved">&copy; 2026 EnriqueBDL. </p>
             <section class="developed-by">
-                <span>Desarrollado con</span>
+                <span data-i18n="developed_with">Desarrollado con</span>
                 <section class="tool-logos">
                     <a href="https://formspree.io" target="_blank" title="Formspree">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Formspree</title><path d="M1.333 2a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.857a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm0 8.571a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.858a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm2 6.572a2 2 0 0 0-2 2V22a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2.857a2 2 0 0 0-2-2z"/></svg>

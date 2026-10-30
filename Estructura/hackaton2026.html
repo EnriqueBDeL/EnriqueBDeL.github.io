@@ -73,6 +73,7 @@
     <link rel="stylesheet" href="../Estilo/hackaton2026.css">
 
     <!-- Scripts -->
+    <script src="../Scripts/translations.js" defer></script>
     <script src="../Scripts/main.js" defer></script>
     <script src="../Scripts/hackaton2026.js" defer></script>
 </head>
@@ -84,15 +85,20 @@
         <span class="glow glow-2"></span>
     </aside>
 
-    <!-- Botón de cambio de tema -->
-    <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
-        <i class="ph ph-moon"></i>
-    </button>
+    <!-- Botones de cambio de tema e idioma -->
+    <section class="floating-actions">
+        <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
+            <i class="ph ph-moon"></i>
+        </button>
+        <button id="lang-toggle" class="lang-toggle-btn floating-toggle" aria-label="Cambiar idioma / Change language">
+            <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-t4c"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-t4c"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-t4c)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-t4c)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+        </button>
+    </section>
 
     <!-- Barra de navegación superior -->
     <nav class="navbar scrolled">
         <section class="nav-container">
-            <a href="../index.html" class="logo"><i class="ph ph-arrow-left"></i> Volver al Inicio</a>
+            <a href="../index.html" class="logo"><i class="ph ph-arrow-left"></i> <span data-i18n="back_to_home">Volver al Inicio</span></a>
         </section>
     </nav>
 
@@ -101,32 +107,32 @@
             <h1 class="t4c-title-logo-heading">
                 <img src="../Media/Talent4Cyber/talent4cyber-2026-logo.png" alt="Talent4Cyber 2026 - Mando Conjunto del Ciberespacio" class="t4c-hero-logo" width="1024" height="233">
             </h1>
-            <p class="t4c-subtitle">
+            <p class="t4c-subtitle" data-i18n="t4c_subtitle">
                 Representando a la <strong>Universidad Católica San Antonio de Murcia (UCAM)</strong> en la 3ª edición del mayor hackathon de ciberdefensa de España.
             </p>
 
             <section class="t4c-meta-bar">
                 <article class="t4c-meta-item">
                     <i class="ph ph-shield-check"></i>
-                    <span>Organizador: <strong>MCCE (Defensa)</strong></span>
+                    <span data-i18n="t4c_meta_org">Organizador: <strong>MCCE (Defensa)</strong></span>
                 </article>
                 <article class="t4c-meta-item">
                     <i class="ph ph-calendar-blank"></i>
-                    <span>Fecha: <strong>14 y 15 Octubre 2026</strong></span>
+                    <span data-i18n="t4c_meta_date">Fecha: <strong>14 y 15 Octubre 2026</strong></span>
                 </article>
                 <article class="t4c-meta-item">
                     <i class="ph ph-crosshair"></i>
-                    <span>Modalidad: <strong>Attack & Defense / CTF</strong></span>
+                    <span data-i18n="t4c_meta_mod">Modalidad: <strong>Attack & Defense / CTF</strong></span>
                 </article>
                 <article class="t4c-meta-item">
                     <i class="ph ph-globe"></i>
-                    <span>Actividad: <strong>Online</strong></span>
+                    <span data-i18n="t4c_meta_act">Actividad: <strong>Online</strong></span>
                 </article>
             </section>
 
             <section class="t4c-actions">
                 <a href="https://talent4cyber.es/" target="_blank" rel="noopener noreferrer" class="btn-t4c-primary">
-                    <i class="ph ph-globe"></i> Portal Oficial Talent4Cyber <i class="ph ph-arrow-up-right"></i>
+                    <i class="ph ph-globe"></i> <span data-i18n="t4c_btn_portal">Portal Oficial Talent4Cyber</span> <i class="ph ph-arrow-up-right"></i>
                 </a>
             </section>
         </header>
@@ -134,28 +140,28 @@
         <!-- Sección de Lore y Contexto del Evento (Texto simple sin recuadros ni etiquetas) -->
         <section class="t4c-lore-section fade-in">
             <header class="t4c-section-header">
-                <h2 class="t4c-section-title">El Lore de Talent4Cyber</h2>
+                <h2 class="t4c-section-title" data-i18n="t4c_lore_title">El Lore de Talent4Cyber</h2>
             </header>
 
             <article class="t4c-simple-block">
-                <h3 class="t4c-simple-heading"><i class="ph ph-shield-check"></i> ¿Qué es Talent4Cyber?</h3>
-                <p>
+                <h3 class="t4c-simple-heading"><i class="ph ph-shield-check"></i> <span data-i18n="t4c_what_is">¿Qué es Talent4Cyber?</span></h3>
+                <p data-i18n="t4c_what_is_p1">
                     Talent4Cyber es el hackathon universitario de referencia en España organizado por el <strong>Mando Conjunto del Ciberespacio (MCCE)</strong> del Ministerio de Defensa, en estrecha colaboración con la Universidad de Granada, la Universidad Politécnica de Cartagena (UPCT), Trust Lab y el respaldo de INCIBE.
                 </p>
-                <p>
+                <p data-i18n="t4c_what_is_p2">
                     Su misión es detectar, entrenar y potenciar el talento joven universitario dentro del escenario de las operaciones defensivas del ciberespacio nacional frente a amenazas híbridas y ataques sofisticados dirigidos contra la soberanía digital del país.
                 </p>
             </article>
 
             <article class="t4c-simple-block">
-                <h3 class="t4c-simple-heading"><i class="ph ph-anchor"></i> Trama Días 1 y 2: Operación Estrecho Fantasma</h3>
-                <p>
+                <h3 class="t4c-simple-heading"><i class="ph ph-anchor"></i> <span data-i18n="t4c_plot_title">Trama Días 1 y 2: Operación Estrecho Fantasma</span></h3>
+                <p data-i18n="t4c_plot_p1">
                     La trama táctica y narrativa del hackathon se articula alrededor de la <strong>Operación Estrecho Fantasma</strong>, una simulación operativa dividida en dos jornadas consecutivas de alta intensidad técnica:
                 </p>
-                <p>
+                <p data-i18n="t4c_plot_p2">
                     Durante el <strong>Día 1</strong>, decenas de escuadras universitarias de toda España compitieron en una intensa criba técnica en modalidad Jeopardy / CTF, resolviendo desafíos de criptografía militar, análisis forense digital (DFIR), ingeniería inversa de binarios, análisis de tráfico de red y explotación de servicios web vulnerables. Únicamente los 25 mejores clasificados lograban asegurar su pase a la fase definitiva.
                 </p>
-                <p>
+                <p data-i18n="t4c_plot_p3">
                     En el <strong>Día 2</strong>, los clasificados se enfrentaron a un ejercicio de <em>Attack & Defense</em> centrado en la defensa y mitigación de incidentes cibernéticos sobre infraestructuras críticas del Estrecho: sistemas de posicionamiento marítimo AIS de buques mercantes, balizamiento marítimo, redes operativas portuarias y cables submarinos estratégicos de telecomunicaciones.
                 </p>
             </article>
@@ -164,7 +170,7 @@
         <!-- Sección de Escuadrón Vertex (Solo nombres, sin descripciones ni títulos) -->
         <section class="t4c-team-section fade-in">
             <header class="t4c-section-header">
-                <h2 class="t4c-section-title">Escuadrón Vertex</h2>
+                <h2 class="t4c-section-title" data-i18n="t4c_team_title">Escuadrón Vertex</h2>
             </header>
 
             <ul class="t4c-team-simple-list">
@@ -173,7 +179,7 @@
                         <i class="ph ph-user"></i>
                     </figure>
                     <span class="t4c-member-simple-name">Pablo</span>
-                    <span class="t4c-member-tag">Líder</span>
+                    <span class="t4c-member-tag" data-i18n="t4c_leader_tag">Líder</span>
                 </li>
                 <li class="t4c-member-simple-item">
                     <figure class="t4c-member-simple-avatar">
@@ -199,8 +205,8 @@
         <!-- Sección de Estadísticas y Resultados Clave -->
         <section id="marcador" class="t4c-stats-section fade-in">
             <header class="t4c-section-header">
-                <h2 class="t4c-section-title">Resultados del Equipo Vertex</h2>
-                <p class="t4c-section-subtitle">Métricas oficiales alcanzadas durante la exigente jornada clasificatoria de la competición.</p>
+                <h2 class="t4c-section-title" data-i18n="t4c_results_title">Resultados del Equipo Vertex</h2>
+                <p class="t4c-section-subtitle" data-i18n="t4c_results_subtitle">Métricas oficiales alcanzadas durante la exigente jornada clasificatoria de la competición.</p>
             </header>
 
             <section class="t4c-stats-grid">
@@ -212,7 +218,7 @@
                             <span id="vertex-score-count" data-target="108">0</span>
                             <span class="t4c-stat-unit">Pts</span>
                         </p>
-                        <h3 class="t4c-stat-label">Puntos</h3>
+                        <h3 class="t4c-stat-label" data-i18n="t4c_stat_points">Puntos</h3>
                     </section>
                 </article>
 
@@ -223,7 +229,7 @@
                         <p class="t4c-stat-value">
                             <i class="ph ph-arrow-down t4c-red-arrow"></i> Top 25
                         </p>
-                        <h3 class="t4c-stat-label">Puesto</h3>
+                        <h3 class="t4c-stat-label" data-i18n="t4c_stat_rank">Puesto</h3>
                     </section>
                 </article>
 
@@ -232,7 +238,7 @@
                     <figure class="t4c-stat-icon"><i class="ph ph-users-four"></i></figure>
                     <section class="t4c-stat-content">
                         <p class="t4c-stat-value">4</p>
-                        <h3 class="t4c-stat-label">Miembros</h3>
+                        <h3 class="t4c-stat-label" data-i18n="t4c_stat_members">Miembros</h3>
                     </section>
                 </article>
             </section>
@@ -241,7 +247,7 @@
         <!-- Sección de Herramientas y Tecnologías Utilizadas -->
         <section class="t4c-tools-section fade-in">
             <header class="t4c-section-header">
-                <h2 class="t4c-section-title">Herramientas Utilizadas</h2>
+                <h2 class="t4c-section-title" data-i18n="t4c_tools_title">Herramientas Utilizadas</h2>
             </header>
 
             <!-- Entorno de Trabajo / Máquina Virtual Kali Linux -->
@@ -337,29 +343,29 @@
         <!-- Sección de Experiencia (Texto simple fuera de recuadros) -->
         <section class="t4c-experience-section fade-in">
             <header class="t4c-section-header">
-                <h2 class="t4c-section-title">Experiencia</h2>
+                <h2 class="t4c-section-title" data-i18n="t4c_reflection_title">Reflexión Personal y Conclusiones</h2>
             </header>
 
             <article class="t4c-simple-block">
-                <p>
+                <p data-i18n="t4c_ref_p1">
                     Haber participado en Talent4Cyber 2026 ha sido una de las experiencias más intensas y donde más he aprendido en lo que llevo de carrera. Representar a la UCAM en un hackathon nacional organizado por el Mando Conjunto del Ciberespacio nos metió de lleno en retos técnicos bastante complejos y problemas del mundo real.
                 </p>
 
-                <p>
+                <p data-i18n="t4c_ref_p2">
                     Conseguimos 108 puntos gracias al esfuerzo de todos, sobre todo por parte de Irene, que fue la que más retos logró resolver.
                 </p>
 
-                <p>
+                <p data-i18n="t4c_ref_p3">
                     Eso sí, el factor tiempo nos jugó una mala pasada: al tener otros compromisos fuera de la competición, no pudimos estar al 100% volcados en el evento ni exprimir a fondo la primera jornada. Por eso no alcanzamos la puntuación de corte para entrar en el Top 25 y pasar al Día 2.
                 </p>
 
-                <p>
+                <p data-i18n="t4c_ref_p4">
                     Aun así, lejos de venirnos abajo, Pablo, Irene, Antonio y yo nos quedamos con unas sensaciones buenísimas. Pasar horas haciendo retos nos sirvió para ver de cerca cómo funciona la ciberdefensa militar real, y acabar con muchísimas ganas de participar en más hackathons.
                 </p>
 
                 <nav class="t4c-back-container">
                     <a href="../index.html#actividad" class="btn btn-primary">
-                        <i class="ph ph-arrow-left"></i> Volver a la sección de Actividad
+                        <i class="ph ph-arrow-left"></i> <span data-i18n="t4c_back_activity">Volver a la sección de Actividad</span>
                     </a>
                 </nav>
             </article>
@@ -377,10 +383,10 @@
                 <a href="https://youtube.com/@enrique_bdl" target="_blank" title="YouTube"><i class="ph ph-youtube-logo"></i></a>
             </nav>
 
-            <p>&copy; 2026 EnriqueBDL.</p>
+            <p data-i18n="all_rights_reserved">&copy; 2026 EnriqueBDL.</p>
 
             <section class="developed-by">
-                <span>Desarrollado con</span>
+                <span data-i18n="developed_with">Desarrollado con</span>
                 <section class="tool-logos">
                     <a href="https://formspree.io" target="_blank" title="Formspree">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Formspree</title><path d="M1.333 2a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.857a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm0 8.571a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.858a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm2 6.572a2 2 0 0 0-2 2V22a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2.857a2 2 0 0 0-2-2z"/></svg>

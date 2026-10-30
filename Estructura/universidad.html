@@ -68,6 +68,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../Scripts/translations.js" defer></script>
     <script src="../Scripts/main.js" defer></script>
     <link rel="stylesheet" href="../Estilo/styles.css">
 </head>
@@ -75,13 +76,18 @@
 
     <nav class="navbar scrolled">
         <section class="nav-container">
-            <a href="../index.html" class="logo"><i class="ph ph-arrow-left"></i> Volver al Inicio</a>
+            <a href="../index.html" class="logo"><i class="ph ph-arrow-left"></i> <span data-i18n="back_to_home">Volver al Inicio</span></a>
         </section>
     </nav>
 
-    <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
-        <i class="ph ph-moon"></i>
-    </button>
+    <section class="floating-actions">
+        <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
+            <i class="ph ph-moon"></i>
+        </button>
+        <button id="lang-toggle" class="lang-toggle-btn floating-toggle" aria-label="Cambiar idioma / Change language">
+            <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-uni"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-uni"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-uni)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-uni)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+        </button>
+    </section>
 
     <header>
         <img src="../Media/Universidad/pabellonV.png" alt="Edificio UCAM" class="chalkboard-header-image">
@@ -89,28 +95,28 @@
 
     <main class="chalkboard-wrapper">
         <article class="chalkboard-content-container">
-            <h1 class="chalk-heading">Mi paso por la UCAM</h1>
+            <h1 class="chalk-heading" data-i18n="uni_title">Mi paso por la UCAM</h1>
             
             <section class="chalk-text">
-                <p>He estudiado el Grado en Ingeniería Informática en la Universidad Católica San Antonio de Murcia (UCAM). Inicié este apasionante viaje en el año 2022 y actualmente sigo cursando la carrera, ampliando mis conocimientos día a día y formándome para darle forma al futuro tecnológico.</p>
+                <p data-i18n="uni_intro">He estudiado el Grado en Ingeniería Informática en la Universidad Católica San Antonio de Murcia (UCAM). Inicié este apasionante viaje en el año 2022 y actualmente sigo cursando la carrera, ampliando mis conocimientos día a día y formándome para darle forma al futuro tecnológico.</p>
             </section>
 
             <aside class="chalk-decoration" aria-hidden="true">〰〰〰 💻 〰〰〰</aside>
 
             <section>
-                <h2 class="chalk-heading chalk-heading-section mt-3">Asignaturas Cursadas</h2>
+                <h2 class="chalk-heading chalk-heading-section mt-3" data-i18n="uni_subjects_title">Asignaturas Cursadas</h2>
                 
                 <section class="table-responsive">
                     <table class="subjects-table">
                     <thead>
                         <tr>
-                            <th>Curso</th>
-                            <th>Asignaturas del Plan de Estudios</th>
+                            <th data-i18n="uni_th_year">Curso</th>
+                            <th data-i18n="uni_th_curriculum">Asignaturas del Plan de Estudios</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>1º Curso</strong></td>
+                            <td><strong data-i18n="uni_year_1">1º Curso</strong></td>
                             <td>
                                 <ul class="subjects-list">
                                     <li>Álgebra Lineal</li>
@@ -129,7 +135,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>2º Curso</strong></td>
+                            <td><strong data-i18n="uni_year_2">2º Curso</strong></td>
                             <td>
                                 <ul class="subjects-list">
                                     <li>Algoritmia</li>
@@ -147,7 +153,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>3º Curso</strong><br></td>
+                            <td><strong data-i18n="uni_year_3">3º Curso</strong><br></td>
                             <td>
                                 <ul class="subjects-list">
                                     <li>Programación Paralela</li>
@@ -165,7 +171,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>4º Curso</strong><br></td>
+                            <td><strong data-i18n="uni_year_4">4º Curso</strong><br></td>
                             <td>
                                 <ul class="subjects-list">
                                     <li>Administración de Bases de Datos</li>
@@ -187,10 +193,10 @@
 
             <section class="fade-in">
                 <h2 class="chalk-heading chalk-heading-section easter-egg-wrapper">
-                    Lengua<span id="jorge-easter-egg">j</span>es Aprendidos
+                    <span data-i18n="uni_languages_title_prefix">Lengua</span><span id="jorge-easter-egg">j</span><span data-i18n="uni_languages_title_suffix">es Aprendidos</span>
                     <span id="jorge-cloud" class="easter-egg-cloud hidden">
                         <img src="../Media/Universidad/moonball.png" alt="Moon Ball">
-                        <span>Agradecimientos a <strong>Jorge MM</strong> quien hizo una gran labor por sus compañeros de carrera.</span>
+                        <span data-i18n="uni_jorge_thanks">Agradecimientos a <strong>Jorge MM</strong> quien hizo una gran labor por sus compañeros de carrera.</span>
                         <span class="cloud-tail"></span>
                     </span>
                 </h2>
@@ -231,7 +237,7 @@
             </section>
 
             <section class="fade-in">
-                <h2 class="chalk-heading chalk-heading-section">Programas Utilizados</h2>
+                <h2 class="chalk-heading chalk-heading-section" data-i18n="uni_software_title">Programas Utilizados</h2>
                 <section class="post-it-grid">
                     <article class="post-it fade-in"><img src="../Media/Aplicaciones/CodeBlocks.png" alt="CodeBlocks"><p>CodeBlocks</p></article>
                     <article class="post-it fade-in"><img src="../Media/Aplicaciones/Matlab.png" alt="Matlab"><p>Matlab</p></article>
@@ -267,16 +273,16 @@
             </section>
 
             <nav class="back-btn-chalk-container">
-                <a href="../index.html" class="back-btn-chalk"><i class="ph ph-arrow-left"></i> Volver al Portfolio</a>
+                <a href="../index.html" class="back-btn-chalk"><i class="ph ph-arrow-left"></i> <span data-i18n="back_to_home">Volver al Inicio</span></a>
             </nav>
         </article>
     </main>
     
     <footer>
         <section class="footer-container">
-            <p>&copy; 2026 EnriqueBDL.</p>
+            <p data-i18n="all_rights_reserved">&copy; 2026 EnriqueBDL.</p>
             <section class="developed-by">
-                <span>Desarrollado con</span>
+                <span data-i18n="developed_with">Desarrollado con</span>
                 <section class="tool-logos">
                     <a href="https://formspree.io" target="_blank" title="Formspree">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Formspree</title><path d="M1.333 2a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.857a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm0 8.571a2 2 0 0 1 2-2h17.334a2 2 0 0 1 2 2v2.858a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2zm2 6.572a2 2 0 0 0-2 2V22a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2.857a2 2 0 0 0-2-2z"/></svg>

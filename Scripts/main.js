@@ -29,6 +29,7 @@ if (navbar) {
 }
 
 const themeToggleBtn = document.getElementById('theme-toggle');
+const langToggleBtn = document.getElementById('lang-toggle');
 const rootElement = document.documentElement;
 
 function getCurrentTheme() {
@@ -80,76 +81,158 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e
     }
 });
 
-const easterEggTrigger = document.getElementById('easter-egg-trigger');
-if (easterEggTrigger) {
-    let textNodes = [];
+/* ==========================================================================
+   SISTEMA DE INTERNACIONALIZACIÓN (i18n) - ES / EN
+   ========================================================================== */
 
-    function getTextNodes(node) {
-        if (node.nodeType === 3) {
-            if (node.nodeValue.trim() !== '') {
-                textNodes.push({
-                    node: node,
-                    originalText: node.nodeValue
-                });
-            }
-        } else {
-            for (let i = 0; i < node.childNodes.length; i++) {
-                getTextNodes(node.childNodes[i]);
-            }
+function getCurrentLanguage() {
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang === 'en' || savedLang === 'es') {
+        return savedLang;
+    }
+    const browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+    return browserLang.startsWith('en') ? 'en' : 'es';
+}
+
+function applyLanguage(lang) {
+    const dict = (window.EB_TRANSLATIONS && window.EB_TRANSLATIONS[lang]) || (window.EB_TRANSLATIONS && window.EB_TRANSLATIONS['es']);
+    if (!dict) return;
+
+    document.documentElement.lang = lang;
+
+    // Actualizar elementos con data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+            el.innerHTML = dict[key];
         }
+    });
+
+    // Actualizar placeholders con data-i18n-ph
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (dict[key] !== undefined) {
+            el.setAttribute('placeholder', dict[key]);
+        }
+    });
+
+    // Si el modo dislexia estaba activo, detenerlo limpiamente al cambiar de idioma
+    if (window.dyslexiaInterval) {
+        clearInterval(window.dyslexiaInterval);
+        window.dyslexiaInterval = null;
     }
 
-    easterEggTrigger.addEventListener('click', () => {
-        if (window.dyslexiaInterval) {
-            clearInterval(window.dyslexiaInterval);
-            window.dyslexiaInterval = null;
+    // Actualizar botón de alternancia de idioma con banderas SVG
+    if (langToggleBtn) {
+        // Bandera de España (para volver a español si estamos en inglés)
+        const flagSpainSvg = `<svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#aa151b" d="M0 0h640v480H0z"/><path fill="#f1bf00" d="M0 120h640v240H0z"/></svg>`;
+        // Bandera de Reino Unido (para cambiar a inglés si estamos en español)
+        const flagUkSvg = `<svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-dyn"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-dyn"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-dyn)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-dyn)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>`;
 
-            for (let i = 0; i < textNodes.length; i++) {
-                textNodes[i].node.nodeValue = textNodes[i].originalText;
-            }
-            return;
-        }
+        // Si el idioma activo es es, el botón muestra la bandera de Reino Unido (para cambiar a inglés)
+        // Si el idioma activo es en, el botón muestra la bandera de España (para volver a español)
+        langToggleBtn.innerHTML = lang === 'es' ? flagUkSvg : flagSpainSvg;
+        langToggleBtn.setAttribute('title', lang === 'es' ? 'Switch to English' : 'Cambiar a Español');
+        langToggleBtn.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a Español');
+    }
 
-        if (textNodes.length === 0) {
-            getTextNodes(document.body);
-        }
+    // Volver a enlazar los easter eggs tras inyectar HTML nuevo
+    initEasterEggs();
+}
 
-        window.dyslexiaInterval = setInterval(() => {
-            for (let i = 0; i < textNodes.length; i++) {
-                if (Math.random() < 0.1) {
-                    let newWords = textNodes[i].originalText.split(' ');
+/* ==========================================================================
+   EASTER EGGS (Gonzalo, Jorge, Dislexia)
+   ========================================================================== */
 
-                    for (let j = 0; j < newWords.length; j++) {
-                        if (Math.random() < 0.2 && newWords[j].length > 3) {
-                            let wordArr = newWords[j].split('');
-                            let swapIdx = Math.floor(Math.random() * (wordArr.length - 3)) + 1;
-                            let temp = wordArr[swapIdx];
-                            wordArr[swapIdx] = wordArr[swapIdx + 1];
-                            wordArr[swapIdx + 1] = temp;
-                            newWords[j] = wordArr.join('');
-                        }
-                    }
-                    textNodes[i].node.nodeValue = newWords.join(' ');
+function initEasterEggs() {
+    // 1. Easter Egg Dislexia (trigger letra "D")
+    const easterEggTrigger = document.getElementById('easter-egg-trigger');
+    if (easterEggTrigger && !easterEggTrigger.dataset.bound) {
+        easterEggTrigger.dataset.bound = 'true';
+        let textNodes = [];
+
+        function getTextNodes(node) {
+            if (node.nodeType === 3) {
+                if (node.nodeValue.trim() !== '') {
+                    textNodes.push({
+                        node: node,
+                        originalText: node.nodeValue
+                    });
+                }
+            } else {
+                for (let i = 0; i < node.childNodes.length; i++) {
+                    getTextNodes(node.childNodes[i]);
                 }
             }
-        }, 300);
-    });
+        }
+
+        easterEggTrigger.addEventListener('click', () => {
+            if (window.dyslexiaInterval) {
+                clearInterval(window.dyslexiaInterval);
+                window.dyslexiaInterval = null;
+
+                for (let i = 0; i < textNodes.length; i++) {
+                    textNodes[i].node.nodeValue = textNodes[i].originalText;
+                }
+                return;
+            }
+
+            textNodes = [];
+            getTextNodes(document.body);
+
+            window.dyslexiaInterval = setInterval(() => {
+                for (let i = 0; i < textNodes.length; i++) {
+                    if (Math.random() < 0.1) {
+                        let newWords = textNodes[i].originalText.split(' ');
+
+                        for (let j = 0; j < newWords.length; j++) {
+                            if (Math.random() < 0.2 && newWords[j].length > 3) {
+                                let wordArr = newWords[j].split('');
+                                let swapIdx = Math.floor(Math.random() * (wordArr.length - 3)) + 1;
+                                let temp = wordArr[swapIdx];
+                                wordArr[swapIdx] = wordArr[swapIdx + 1];
+                                wordArr[swapIdx + 1] = temp;
+                                newWords[j] = wordArr.join('');
+                            }
+                        }
+                        textNodes[i].node.nodeValue = newWords.join(' ');
+                    }
+                }
+            }, 300);
+        });
+    }
+
+    // 2. Easter Egg Jorge (trigger letra "j" en Universidad)
+    const jorgeEasterEggTrigger = document.getElementById('jorge-easter-egg');
+    const jorgeCloud = document.getElementById('jorge-cloud');
+    if (jorgeEasterEggTrigger && jorgeCloud && !jorgeEasterEggTrigger.dataset.bound) {
+        jorgeEasterEggTrigger.dataset.bound = 'true';
+        jorgeEasterEggTrigger.addEventListener('click', () => {
+            jorgeCloud.classList.toggle('visible');
+        });
+    }
+
+    // 3. Easter Egg Gonzalo (trigger "grupo" en GDG)
+    const gonzaloEasterEggTrigger = document.getElementById('gonzalo-easter-egg');
+    const gonzaloCloud = document.getElementById('gonzalo-cloud');
+    if (gonzaloEasterEggTrigger && gonzaloCloud && !gonzaloEasterEggTrigger.dataset.bound) {
+        gonzaloEasterEggTrigger.dataset.bound = 'true';
+        gonzaloEasterEggTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            gonzaloCloud.classList.toggle('visible');
+        });
+    }
 }
 
-const jorgeEasterEggTrigger = document.getElementById('jorge-easter-egg');
-const jorgeCloud = document.getElementById('jorge-cloud');
-if (jorgeEasterEggTrigger && jorgeCloud) {
-    jorgeEasterEggTrigger.addEventListener('click', () => {
-        jorgeCloud.classList.toggle('visible');
-    });
-}
+const currentLanguage = getCurrentLanguage();
+applyLanguage(currentLanguage);
 
-const gonzaloEasterEggTrigger = document.getElementById('gonzalo-easter-egg');
-const gonzaloCloud = document.getElementById('gonzalo-cloud');
-if (gonzaloEasterEggTrigger && gonzaloCloud) {
-    gonzaloEasterEggTrigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        gonzaloCloud.classList.toggle('visible');
+if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', () => {
+        const activeLang = document.documentElement.lang === 'en' ? 'en' : 'es';
+        const nextLang = activeLang === 'es' ? 'en' : 'es';
+        localStorage.setItem('lang', nextLang);
+        applyLanguage(nextLang);
     });
 }
 

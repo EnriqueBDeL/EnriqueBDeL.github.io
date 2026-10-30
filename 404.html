@@ -22,19 +22,25 @@
     <link rel="stylesheet" href="Estilo/styles.css">
     <link rel="stylesheet" href="Estilo/404.css">
     
+    <script src="Scripts/translations.js" defer></script>
     <script src="Scripts/main.js" defer></script>
     <script src="Scripts/404.js" defer></script>
 </head>
 <body class="error-page-body">
 
-    <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
-        <i class="ph ph-moon"></i>
-    </button>
+    <section class="floating-actions">
+        <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
+            <i class="ph ph-moon"></i>
+        </button>
+        <button id="lang-toggle" class="lang-toggle-btn floating-toggle" aria-label="Cambiar idioma / Change language">
+            <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-404"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-404"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-404)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-404)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+        </button>
+    </section>
 
     <main class="content-wrap">
         <h1 class="error-code">404</h1>
         <a id="home-link" href="index.html" class="home-btn">
-            <i class="ph ph-house"></i> Volver al Inicio
+            <i class="ph ph-house"></i> <span data-i18n="404_home">Volver al Inicio</span>
         </a>
     </main>
 
