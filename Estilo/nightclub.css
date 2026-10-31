@@ -1,358 +1,233 @@
-/* ==========================================================================
-   NIGHTCLUB MODE — Persiana metálica + focos de discoteca
-   Activo entre las 02:00 y las 04:59 h (o forzado con ?nightclub / #nightclub)
-   ========================================================================== */
 
-/* --- Persiana metálica (overlay a pantalla completa) --- */
+/* ===== NIGHTCLUB MODE ===== */
+
 #nightclub-shutter {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 999999;
-    /* Lamas horizontales de persiana metálica industrial (46px por lama) */
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #0b0c0f 0px,
-            #15171d 2px,
-            #222630 8px,
-            #3e4454 18px,
-            #586074 23px,
-            #444a5b 26px,
-            #242833 34px,
-            #121318 44px,
-            #07080a 46px
-        );
-    background-size: 100% 46px;
-    transform: translateY(-105%);
-    overflow: hidden;
+    inset: 0;
+    z-index: 10000;
+
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
-    box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.9), inset 0 20px 40px rgba(0, 0, 0, 0.9);
+
+    box-sizing: border-box;
+    padding: 24px;
+    overflow-y: auto;
+
+    color: #ffffff;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(117, 0, 160, 0.55),
+            transparent 55%
+        ),
+        linear-gradient(135deg, #08000d, #190021, #050008);
+
+    animation: nightclub-appear 0.8s ease both;
 }
 
-/* Estado activo: la persiana baja con inercia y rebote industrial */
-#nightclub-shutter.nc-active {
-    transform: translateY(0);
-    pointer-events: all;
-    animation: nc-shutter-down 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.nightclub-content {
+    width: 100%;
+    max-width: 520px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-@keyframes nc-shutter-down {
-    0% {
-        transform: translateY(-105%);
+.nightclub-icon {
+    margin-bottom: 12px;
+    font-size: 48px;
+    animation: nightclub-float 2s ease-in-out infinite;
+}
+
+.nightclub-content h1 {
+    margin: 0 0 16px;
+
+    color: #ff43dc;
+    font-size: clamp(30px, 7vw, 48px);
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 8px #ff43dc,
+        0 0 24px #c000ff,
+        0 0 45px #7700ff;
+}
+
+.nightclub-description {
+    color: #f0dff8;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#music-status {
+    min-height: 24px;
+    margin: 20px 0 12px;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+#start-nightclub-music {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 25px;
+
+    border: 2px solid #ff9aec;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #ff43dc, #a000ff);
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(255, 67, 220, 0.4);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#start-nightclub-music:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 28px rgba(255, 67, 220, 0.75);
+}
+
+#start-nightclub-music:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+#start-nightclub-music:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.music-help {
+    max-width: 390px;
+    margin: 18px auto 0;
+
+    color: #d5c8dc;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Animación decorativa */
+
+.nightclub-equalizer {
+    display: flex;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 25px 0;
+}
+
+.nightclub-equalizer span {
+    display: block;
+    width: 5px;
+    height: 12px;
+    border-radius: 5px;
+
+    background: #ff43dc;
+    box-shadow: 0 0 10px #ff43dc;
+
+    animation: nightclub-equalize 0.7s ease-in-out infinite alternate;
+}
+
+.nightclub-equalizer span:nth-child(2),
+.nightclub-equalizer span:nth-child(6) {
+    animation-delay: 0.2s;
+}
+
+.nightclub-equalizer span:nth-child(3),
+.nightclub-equalizer span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.nightclub-equalizer span:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+/* Reproductor visible en la esquina inferior derecha */
+
+#nc-audio-player {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 10001;
+
+    width: 300px;
+    height: 170px;
+
+    border: 1px solid rgba(255, 67, 220, 0.6);
+    border-radius: 10px;
+    background: #000000;
+}
+
+/* Animaciones */
+
+@keyframes nightclub-appear {
+    from {
+        opacity: 0;
     }
-    68% {
-        transform: translateY(1.8%);
+
+    to {
+        opacity: 1;
     }
-    82% {
-        transform: translateY(-0.8%);
-    }
-    92% {
-        transform: translateY(0.3%);
-    }
+}
+
+@keyframes nightclub-float {
+    0%,
     100% {
         transform: translateY(0);
     }
-}
 
-/* Remate metálico inferior (zócalo de persiana comercial con goma) */
-#nightclub-shutter::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 48px;
-    background: linear-gradient(to bottom, #3a3f4d 0%, #20232b 45%, #0f1014 90%, #050507 100%);
-    border-top: 3px solid #6b758c;
-    border-bottom: 6px solid #000000;
-    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.85);
-    z-index: 3;
-    pointer-events: none;
-}
-
-/* Reflejo metálico vertical que recorre la persiana de lado a lado */
-#nightclub-shutter::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 25%,
-        rgba(255, 255, 255, 0.03) 42%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.03) 58%,
-        transparent 75%
-    );
-    animation: nc-sheen 7s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes nc-sheen {
-    0%, 100% { transform: translateX(-120%); }
-    50% { transform: translateX(120%); }
-}
-
-/* --- Focos de colores de discoteca (luces moviéndose por la persiana) --- */
-.nc-spotlight {
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0;
-    pointer-events: none;
-    will-change: transform, opacity;
-    mix-blend-mode: screen;
-    z-index: 2;
-}
-
-.nc-spotlight-1 {
-    --spot-color: #ff0055;
-    background: radial-gradient(circle, var(--spot-color) 0%, rgba(255, 0, 85, 0.4) 40%, transparent 70%);
-    top: 5%;
-    left: 10%;
-    animation: nc-spot-fade-in 0.8s 2.6s forwards, nc-float-1 8s 2.6s ease-in-out infinite alternate;
-}
-
-.nc-spotlight-2 {
-    --spot-color: #00e5ff;
-    background: radial-gradient(circle, var(--spot-color) 0%, rgba(0, 229, 255, 0.4) 40%, transparent 70%);
-    top: 50%;
-    right: 5%;
-    animation: nc-spot-fade-in 0.8s 2.8s forwards, nc-float-2 10s 2.8s ease-in-out infinite alternate;
-}
-
-.nc-spotlight-3 {
-    --spot-color: #9d00ff;
-    background: radial-gradient(circle, var(--spot-color) 0%, rgba(157, 0, 255, 0.4) 40%, transparent 70%);
-    bottom: 12%;
-    left: 30%;
-    animation: nc-spot-fade-in 0.8s 3s forwards, nc-float-3 9s 3s ease-in-out infinite alternate;
-}
-
-.nc-spotlight-4 {
-    --spot-color: #00ff88;
-    background: radial-gradient(circle, var(--spot-color) 0%, rgba(0, 255, 136, 0.4) 40%, transparent 70%);
-    top: 20%;
-    right: 25%;
-    animation: nc-spot-fade-in 0.8s 3.2s forwards, nc-float-4 11s 3.2s ease-in-out infinite alternate;
-}
-
-.nc-spotlight-5 {
-    --spot-color: #ffb700;
-    background: radial-gradient(circle, var(--spot-color) 0%, rgba(255, 183, 0, 0.4) 40%, transparent 70%);
-    bottom: 30%;
-    left: 5%;
-    animation: nc-spot-fade-in 0.8s 3.4s forwards, nc-float-5 7s 3.4s ease-in-out infinite alternate;
-}
-
-@keyframes nc-spot-fade-in {
-    from { opacity: 0; }
-    to { opacity: 0.75; }
-}
-
-@keyframes nc-float-1 {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(260px, 180px) scale(1.3); }
-    100% { transform: translate(120px, 320px) scale(0.9); }
-}
-
-@keyframes nc-float-2 {
-    0% { transform: translate(0, 0) scale(1.1); }
-    50% { transform: translate(-300px, -150px) scale(0.8); }
-    100% { transform: translate(-180px, 140px) scale(1.35); }
-}
-
-@keyframes nc-float-3 {
-    0% { transform: translate(0, 0) scale(0.85); }
-    50% { transform: translate(220px, -240px) scale(1.4); }
-    100% { transform: translate(-150px, -120px) scale(1); }
-}
-
-@keyframes nc-float-4 {
-    0% { transform: translate(0, 0) scale(1.2); }
-    50% { transform: translate(-200px, 220px) scale(0.8); }
-    100% { transform: translate(140px, 80px) scale(1.25); }
-}
-
-@keyframes nc-float-5 {
-    0% { transform: translate(0, 0) scale(0.95); }
-    50% { transform: translate(320px, -120px) scale(1.5); }
-    100% { transform: translate(180px, -260px) scale(0.85); }
-}
-
-/* --- Contenedor de mensaje central --- */
-.nc-message-wrap {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    color: #ffffff;
-    font-family: var(--font-heading, 'Outfit', sans-serif);
-    user-select: none;
-    opacity: 0;
-    transform: translateY(30px);
-    max-width: 90vw;
-    padding: 2rem;
-    cursor: pointer;
-}
-
-#nightclub-shutter.nc-active .nc-message-wrap {
-    animation: nc-msg-fade-in 1.2s 2.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes nc-msg-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.nc-clock {
-    font-size: 4rem;
-    margin-bottom: 0.6rem;
-    animation: nc-discoball 4s ease-in-out infinite;
-    line-height: 1;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
-}
-
-@keyframes nc-discoball {
-    0%, 100% { transform: rotate(-5deg) scale(1); }
-    50% { transform: rotate(5deg) scale(1.12); }
-}
-
-.nc-title {
-    font-size: clamp(1.8rem, 5.5vw, 3.2rem);
-    font-weight: 800;
-    letter-spacing: -1px;
-    text-shadow:
-        0 0 15px rgba(255, 0, 128, 0.6),
-        0 0 35px rgba(0, 229, 255, 0.4),
-        0 2px 4px rgba(0, 0, 0, 0.8);
-    margin: 0 0 0.5rem;
-    line-height: 1.15;
-}
-
-.nc-subtitle {
-    font-size: clamp(1rem, 2.8vw, 1.35rem);
-    font-weight: 400;
-    color: #e0e6ed;
-    font-family: var(--font-sans, 'Inter', sans-serif);
-    margin: 0 0 2rem;
-    line-height: 1.4;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-}
-
-.nc-prompt {
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0.85rem 2.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-sans, 'Inter', sans-serif);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    background: rgba(15, 17, 23, 0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    color: #ffffff;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 255, 0.25);
-    animation: nc-pulse-btn 2.2s infinite;
-}
-
-@keyframes nc-pulse-btn {
-    0%, 100% {
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 229, 255, 0.25);
-        border-color: rgba(255, 255, 255, 0.35);
-    }
     50% {
-        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 0, 128, 0.5);
-        border-color: rgba(255, 0, 128, 0.7);
+        transform: translateY(-8px);
     }
 }
 
-.nc-prompt:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: #00e5ff;
-    transform: scale(1.05);
-    box-shadow: 0 10px 40px rgba(0, 229, 255, 0.45);
-}
-
-.nc-prompt-hidden {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transform: scale(0.9) !important;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* --- Botón flotante para probar el modo persiana --- */
-#nc-test-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 99998;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: rgba(15, 17, 23, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
-#nc-test-btn:hover {
-    transform: scale(1.12);
-    border-color: #00e5ff;
-}
-
-/* --- Iframe de YouTube (reproductor de fondo oculto visualmente) --- */
-#nc-audio-player {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    top: -100px;
-    left: -100px;
-    opacity: 0;
-    pointer-events: none;
-    border: none;
-    z-index: -10;
-}
-
-/* --- Adaptación a pantallas pequeñas / móviles --- */
-@media (max-width: 768px) {
-    .nc-spotlight {
-        width: 220px;
-        height: 220px;
-        filter: blur(55px);
+@keyframes nightclub-equalize {
+    from {
+        height: 8px;
     }
 
-    .nc-clock {
-        font-size: 3.2rem;
+    to {
+        height: 32px;
+    }
+}
+
+/* Ajustes para móviles */
+
+@media (max-width: 480px) {
+    #nightclub-shutter {
+        padding: 14px;
     }
 
-    .nc-prompt {
-        padding: 0.75rem 1.6rem;
-        font-size: 0.88rem;
+    .nightclub-content {
+        padding: 12px;
     }
 
-    #nightclub-shutter::after {
-        height: 36px;
+    .nightclub-content h1 {
+        letter-spacing: 1px;
+    }
+
+    #nc-audio-player {
+        right: 8px;
+        bottom: 8px;
+        width: 180px;
+        height: 102px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #nightclub-shutter,
+    .nightclub-icon,
+    .nightclub-equalizer span {
+        animation: none;
     }
 }
