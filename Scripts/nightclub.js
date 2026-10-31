@@ -166,7 +166,7 @@
                     : 'Si no escuchas la música, pulsa el botón de abajo.';
 
                 soundButton.disabled = false;
-                soundButton.hidden = false;
+                soundButton.hidden = true;
                 soundButton.textContent = isEnglish
                     ? '▶ Open music player'
                     : '▶ Abrir reproductor de música';
@@ -219,29 +219,39 @@
     }
 
     function bindDegreeTrigger() {
-        var degreeTitle = document.querySelector(
-            'h3[data-i18n="studies_degree_title"]'
-        );
+        function attachTrigger() {
+            var trigger = document.getElementById('nightclub-trigger');
 
-        if (!degreeTitle || degreeTitle.dataset.ncBound) {
-            return;
+            if (!trigger || trigger.dataset.ncBound) {
+                return;
+            }
+
+            trigger.dataset.ncBound = 'true';
+
+            trigger.addEventListener('click', function (event) {
+                event.stopPropagation();
+                initNightclub(true);
+            });
         }
 
-        degreeTitle.dataset.ncBound = 'true';
-
-        degreeTitle.addEventListener('click', function () {
-            initNightclub(true);
-        });
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', attachTrigger);
+        } else {
+            attachTrigger();
+        }
     }
 
-    /* Inicialización */
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () {
-            initNightclub();
-            bindDegreeTrigger();
-        });
-    } else {
+    window.initNightclub = initNightclub;
+    window.bindDegreeTrigger = bindDegreeTrigger;
+
+    function startNightclub() {
         initNightclub();
         bindDegreeTrigger();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startNightclub);
+    } else {
+        startNightclub();
     }
 })();

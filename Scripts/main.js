@@ -138,6 +138,10 @@ function applyLanguage(lang) {
 
     // Volver a enlazar los easter eggs tras inyectar HTML nuevo
     initEasterEggs();
+
+    if (typeof window.bindDegreeTrigger === 'function') {
+        window.bindDegreeTrigger();
+    }
 }
 
 /* ==========================================================================
@@ -223,21 +227,20 @@ function initEasterEggs() {
         });
     }
 
-    const nightclubTrigger = document.getElementById('nightclub-trigger');
-
+    // 4. Easter Egg Nightclub (trigger letra "G" o "D")
+   const nightclubTrigger = document.getElementById('nightclub-trigger');
     if (nightclubTrigger && !nightclubTrigger.dataset.bound) {
         nightclubTrigger.dataset.bound = 'true';
-
-        nightclubTrigger.style.cursor = 'pointer';
-
+        
         nightclubTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
-
-            if (typeof initNightclub === 'function') {
-                initNightclub(true);
+            if (typeof window.initNightclub === 'function') {
+                window.initNightclub(true);
             }
         });
     }
+  
 
 }
 

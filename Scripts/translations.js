@@ -31,7 +31,7 @@ const translations = {
 
         // Estudios
         "studies_title": "Estudios",
-        "studies_degree_title": "Grado en Ingeniería Informática",
+        "studies_degree_title": "<span id=\"nightclub-trigger\">G</span>rado en Ingeniería Informática",
         "studies_current": "Actualidad",
         "studies_degree_desc": "Formación integral en desarrollo de software, algoritmos, arquitectura de computadores y bases de datos. Adquiriendo una sólida base analítica y habilidades prácticas en diversos lenguajes como C, Java, SQL y Ensamblador.",
         "studies_learn_more": "Saber más",
@@ -202,7 +202,7 @@ const translations = {
 
         // Studies
         "studies_title": "Studies",
-        "studies_degree_title": "Degree in Computer Engineering",
+        "studies_degree_title": "<span id=\"nightclub-trigger\">D</span>egree in Computer Engineering",
         "studies_current": "Present",
         "studies_degree_desc": "Comprehensive training in software development, algorithms, computer architecture, and databases. Gaining a solid analytical foundation and hands-on skills in languages such as C, Java, SQL, and Assembly.",
         "studies_learn_more": "Learn more",
