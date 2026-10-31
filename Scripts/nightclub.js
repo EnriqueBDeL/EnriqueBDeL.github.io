@@ -1,9 +1,7 @@
-
 /* ==========================================================================
-   NIGHTCLUB MODE — Easter Egg nocturno (02:00 – 04:59 h)
+   NIGHTCLUB MODE — Easter Egg nocturno (02:00 – 05:00 h)
    Persiana industrial, focos de discoteca y música de fondo.
    Autoplay con alternativa manual si el navegador lo bloquea.
-   Prueba: ?nightclub o #nightclub
    ========================================================================== */
 
 (function () {
@@ -38,7 +36,6 @@
         /* Persiana */
         var shutter = document.createElement('section');
         shutter.id = 'nightclub-shutter';
-
         shutter.setAttribute(
             'aria-label',
             isEnglish
@@ -70,8 +67,8 @@
         var subtitle = document.createElement('p');
         subtitle.className = 'nc-subtitle';
         subtitle.textContent = isEnglish
-            ? 'Club closed until 5:00 AM'
-            : 'Local cerrado hasta las 5:00 AM';
+            ? 'website closed until 5:00 AM'
+            : 'Web cerrado hasta las 5:00 AM';
 
         var prompt = document.createElement('p');
         prompt.className = 'nc-prompt';
@@ -80,22 +77,61 @@
             ? '🔊 Trying to start the music…'
             : '🔊 Intentando iniciar la música…';
 
-        /* Botón de activación manual */
+        /* Disculpa por los anuncios */
+        var adApology = document.createElement('p');
+        adApology.className = 'nc-apology';
+        adApology.style.fontSize = '0.85em';
+        adApology.style.opacity = '0.7';
+        adApology.style.margin = '15px 0 10px 0';
+        adApology.textContent = isEnglish
+            ? 'Sorry if an ad plays first. You can show the video below to skip it.'
+            : 'Disculpa si suena un anuncio primero. Puedes mostrar el vídeo abajo para saltarlo.';
+
+        /* Botón de activación manual principal */
         var soundButton = document.createElement('button');
         soundButton.id = 'nc-sound-btn';
         soundButton.type = 'button';
         soundButton.className = 'nc-sound-btn';
-        soundButton.textContent = isEnglish
-            ? '▶ Enable music'
-            : '▶ Activar música';
-
+        soundButton.textContent = isEnglish ? '▶ Enable music' : '▶ Activar música';
         soundButton.hidden = true;
+
+        /* Botón estético para mostrar/ocultar el vídeo */
+        var toggleVideoBtn = document.createElement('button');
+        toggleVideoBtn.id = 'nc-toggle-video-btn';
+        toggleVideoBtn.type = 'button';
+        toggleVideoBtn.textContent = isEnglish
+            ? '👁️ Show video (Skip Ad)'
+            : '👁️ Mostrar vídeo (Saltar anuncio)';
+        
+        // Estilos integrados para el botón
+        toggleVideoBtn.style.marginTop = '15px';
+        toggleVideoBtn.style.padding = '10px 24px';
+        toggleVideoBtn.style.fontSize = '0.9em';
+        toggleVideoBtn.style.color = '#fff';
+        toggleVideoBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        toggleVideoBtn.style.border = '1px solid rgba(255, 255, 255, 0.3)';
+        toggleVideoBtn.style.borderRadius = '30px';
+        toggleVideoBtn.style.cursor = 'pointer';
+        toggleVideoBtn.style.backdropFilter = 'blur(4px)';
+        toggleVideoBtn.style.transition = 'background 0.3s ease, transform 0.2s ease';
+        toggleVideoBtn.hidden = true;
+
+        toggleVideoBtn.onmouseover = function() { 
+            this.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; 
+            this.style.transform = 'scale(1.02)';
+        };
+        toggleVideoBtn.onmouseout = function() { 
+            this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; 
+            this.style.transform = 'scale(1)';
+        };
 
         msgWrap.appendChild(clock);
         msgWrap.appendChild(title);
         msgWrap.appendChild(subtitle);
         msgWrap.appendChild(prompt);
+        msgWrap.appendChild(adApology);
         msgWrap.appendChild(soundButton);
+        msgWrap.appendChild(toggleVideoBtn);
 
         shutter.appendChild(msgWrap);
 
@@ -111,6 +147,7 @@
         /* Audio */
         var audioStarted = false;
         var playerRequested = false;
+        var isVideoVisible = false;
 
         function startAudio() {
             if (audioStarted || playerRequested) {
@@ -119,15 +156,13 @@
 
             playerRequested = true;
             soundButton.disabled = true;
-            soundButton.textContent = isEnglish
-                ? '⏳ Loading player…'
-                : '⏳ Cargando reproductor…';
+            soundButton.textContent = isEnglish ? '⏳ Loading player…' : '⏳ Cargando reproductor…';
 
             var iframe = document.createElement('iframe');
             iframe.id = 'nc-audio-player';
 
             iframe.src =
-                'https://www.youtube.com/embed/Lrle0x_DHBM' +
+                'https://www.youtube-nocookie.com/embed/Lrle0x_DHBM' +
                 '?autoplay=1' +
                 '&loop=1' +
                 '&playlist=Lrle0x_DHBM' +
@@ -135,13 +170,10 @@
 
             iframe.allow = 'autoplay; encrypted-media';
             iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-
-            iframe.setAttribute(
-                'title',
-                isEnglish ? 'Music player' : 'Reproductor de música'
-            );
-
+            iframe.setAttribute('title', isEnglish ? 'Music player' : 'Reproductor de música');
             iframe.setAttribute('allowfullscreen', '');
+            
+            // Estado oculto inicial del iframe
             iframe.style.position = 'absolute';
             iframe.style.width = '1px';
             iframe.style.height = '1px';
@@ -150,16 +182,10 @@
             iframe.style.pointerEvents = 'none';
 
             shutter.appendChild(iframe);
+            toggleVideoBtn.hidden = false;
 
-            /*
-             * La carga del iframe no confirma que el audio se esté oyendo.
-             * Se ofrece una alternativa manual si no se puede confirmar
-             * la reproducción.
-             */
             window.setTimeout(function () {
-                if (audioStarted) {
-                    return;
-                }
+                if (audioStarted) return;
 
                 prompt.textContent = isEnglish
                     ? 'If you cannot hear the music, use the button below.'
@@ -175,20 +201,59 @@
             }, 2500);
         }
 
-        /*
-         * Con YouTube incrustado no podemos confirmar de forma fiable
-         * el inicio del audio sin utilizar la API oficial del reproductor.
-         * El clic manual vuelve a crear el reproductor.
-         */
+        /* Lógica para mostrar/ocultar y centrar el vídeo */
+        toggleVideoBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            var player = document.getElementById('nc-audio-player');
+            if (!player) return;
+
+            if (isVideoVisible) {
+                // Ocultar
+                player.style.width = '1px';
+                player.style.height = '1px';
+                player.style.opacity = '0';
+                player.style.pointerEvents = 'none';
+                player.style.transform = 'none';
+                
+                toggleVideoBtn.textContent = isEnglish
+                    ? '👁️ Show video (Skip Ad)'
+                    : '👁️ Mostrar vídeo (Saltar anuncio)';
+                isVideoVisible = false;
+            } else {
+                // Mostrar centrado
+                player.style.width = '320px';
+                player.style.height = '180px';
+                player.style.opacity = '1';
+                player.style.pointerEvents = 'auto';
+                
+                // Posición central inferior
+                player.style.bottom = '10%';
+                player.style.left = '50%';
+                player.style.transform = 'translateX(-50%)';
+                player.style.zIndex = '9999';
+                
+                // Mejoras visuales del marco
+                player.style.borderRadius = '12px';
+                player.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.8)';
+                player.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+
+                toggleVideoBtn.textContent = isEnglish ? '❌ Hide video' : '❌ Ocultar vídeo';
+                isVideoVisible = true;
+            }
+        });
+
         function startAudioManually() {
             var oldPlayer = document.getElementById('nc-audio-player');
-
             if (oldPlayer) {
                 oldPlayer.remove();
             }
-
             playerRequested = false;
             audioStarted = false;
+            isVideoVisible = false;
+            
+            toggleVideoBtn.textContent = isEnglish
+                ? '👁️ Show video (Skip Ad)'
+                : '👁️ Mostrar vídeo (Saltar anuncio)';
 
             startAudio();
         }
@@ -198,20 +263,8 @@
             startAudioManually();
         });
 
-        /*
-         * Intento automático. El navegador puede bloquear el sonido
-         * si no existe interacción previa del usuario.
-         */
         startAudio();
 
-        /* Evitar que cualquier clic genere múltiples reproductores */
-        shutter.addEventListener('click', function () {
-            if (!audioStarted && !playerRequested) {
-                startAudio();
-            }
-        });
-
-        /* Ocultar botón de test existente */
         var testBtn = document.getElementById('nc-test-btn');
         if (testBtn) {
             testBtn.remove();
