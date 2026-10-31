@@ -222,6 +222,23 @@ function initEasterEggs() {
             gonzaloCloud.classList.toggle('visible');
         });
     }
+
+    const nightclubTrigger = document.getElementById('nightclub-trigger');
+
+    if (nightclubTrigger && !nightclubTrigger.dataset.bound) {
+        nightclubTrigger.dataset.bound = 'true';
+
+        nightclubTrigger.style.cursor = 'pointer';
+
+        nightclubTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            if (typeof initNightclub === 'function') {
+                initNightclub(true);
+            }
+        });
+    }
+
 }
 
 const currentLanguage = getCurrentLanguage();
