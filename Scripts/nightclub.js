@@ -124,27 +124,6 @@
         if (testBtn) testBtn.remove();
     }
 
-    function createTestButton() {
-        if (
-            document.getElementById('nc-test-btn') ||
-            document.getElementById('nightclub-shutter')
-        ) {
-            return;
-        }
-
-        var btn = document.createElement('button');
-        btn.id = 'nc-test-btn';
-        btn.textContent = '🪩';
-        btn.title = 'Probar modo persiana';
-        btn.setAttribute('aria-label', 'Probar modo persiana');
-
-        btn.addEventListener('click', function () {
-            btn.remove();
-            initNightclub(true);
-        });
-
-        document.body.appendChild(btn);
-    }
 
 
     function bindDegreeTrigger() {
@@ -165,12 +144,12 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initNightclub();
-            createTestButton();
             bindDegreeTrigger();
         });
     } else {
         initNightclub();
-        createTestButton();
         bindDegreeTrigger();
     }
+
+  
 })();
