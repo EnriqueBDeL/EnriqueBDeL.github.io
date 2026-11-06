@@ -68,7 +68,7 @@
         subtitle.className = 'nc-subtitle';
         subtitle.textContent = isEnglish
             ? 'website closed until 5:00 AM'
-            : 'Web cerrado hasta las 5:00 AM';
+            : 'Web cerrada hasta las 5:00 AM';
 
         var prompt = document.createElement('p');
         prompt.className = 'nc-prompt';

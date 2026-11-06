@@ -7,7 +7,7 @@ function init404Links() {
     if (path.includes('/EB-Web-Oficial/')) {
         base = '/EB-Web-Oficial/';
     }
-    homeLink.href = base + 'index.html';
+    homeLink.href = base;
 }
 
 function initWave() {

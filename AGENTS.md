@@ -18,20 +18,27 @@ Debes actuar en todo momento como un **Ingeniero y Programador Web Senior / Expe
 
 ## 🏛️ Estructura del Proyecto
 
-El repositorio sigue una estricta separación de responsabilidades en sus directorios:
+El repositorio sigue una estricta separación de responsabilidades en sus directorios y una arquitectura de **URLs limpias mediante directorios (Método 1)**:
 
 ```text
 EB-Web-Oficial/
-├── _config.yml                  # Configuración de Jekyll (permalink para URLs limpias sin extensión)
 ├── 404.html                     # Página de error 404 personalizada
-├── index.html                   # Página principal y portfolio
+├── index.html                   # Página principal y portfolio (/)
 ├── AGENTS.md                    # Reglas obligatorias para el agente
-├── Estilo/                      # Todos los archivos de estilos CSS
+├── robots.txt                   # Directivas de rastreo para buscadores
+├── sitemap.xml                  # Mapa del sitio con URLs limpias sin .html
+├── Estilo/                      # Hojas de estilos CSS del proyecto
 │   ├── styles.css
-│   └── 404.css
-├── Estructura/                  # Todas las páginas y vistas HTML secundarias
-│   ├── gdg.html
-│   └── universidad.html
+│   ├── 404.css
+│   ├── nightclub.css
+│   └── hackaton2026.css
+├── Estructura/                  # Directorio de todas las páginas y vistas secundarias
+│   ├── gdg/                     # Vista y perfil del GDG (/Estructura/gdg/)
+│   │   └── index.html
+│   ├── hackaton2026/            # Vista del Hackathon Talent4Cyber (/Estructura/hackaton2026/)
+│   │   └── index.html
+│   └── universidad/             # Vista de estudios de Grado (/Estructura/universidad/)
+│       └── index.html
 ├── Media/                       # Directorio central de recursos multimedia
 │   ├── Aplicaciones/            # Iconos y logos de herramientas y software
 │   ├── Footer/                  # Logotipos e imágenes exclusivas del pie de página
@@ -39,6 +46,8 @@ EB-Web-Oficial/
 │   └── ...                      # Subcarpetas temáticas estructuradas
 └── Scripts/                     # Todos los archivos de lógica JavaScript
     ├── main.js
+    ├── translations.js
+    ├── nightclub.js
     └── ...                      # Scripts dedicados por página o módulo
 ```
 
@@ -88,13 +97,20 @@ EB-Web-Oficial/
 
 ---
 
-## 🚀 Despliegue en GitHub Pages y URLs Limpias (`_config.yml`)
+## 🚀 Despliegue en GitHub Pages y URLs Limpias (Arquitectura de Directorios)
 
-Para ocultar las extensiones `.html` en los enlaces y rutas del sitio desplegado en GitHub Pages, el archivo `_config.yml` en la raíz define la directriz de permalinks:
-```yaml
-permalink: /:title/
-```
-Cualquier nueva vista o página debe contemplar esta configuración para garantizar URLs limpias y legibles.
+Para garantizar URLs limpias, semánticas y sin extensiones `.html` en GitHub Pages, el sitio implementa la **arquitectura de directorios con `index.html` (Método 1)** organizada bajo el directorio `Estructura/`:
+
+1. **Estructura de Vistas**:
+   - Cada página o subsección secundaria reside en su propia carpeta dentro de `Estructura/` con un archivo llamado `index.html` en su interior (ej. `/Estructura/universidad/index.html`, `/Estructura/gdg/index.html`, `/Estructura/hackaton2026/index.html`).
+   - Los servidores web resuelven automáticamente la URL del directorio (`https://enriquebdel.github.io/Estructura/universidad/`) sirviendo el archivo `index.html` de forma transparente.
+
+2. **Buenas Prácticas para Enlaces (`<a>`), Recursos y SEO**:
+   - **Enlaces a subpáginas desde la raíz**: Enlazar siempre hacia la carpeta con barra final (`href="Estructura/universidad/"`, `href="Estructura/gdg/"`), evitando que el navegador realice una redirección innecesaria (301).
+   - **Enlaces de retorno**: Enlazar a la raíz mediante `href="../../"` desde las páginas dentro de `Estructura/<pagina>/`, o `href="./"` desde páginas de la raíz.
+   - **Rutas a recursos (CSS, JS, Media)**: Al estar a dos niveles de profundidad, las páginas secundarias deben referenciar los recursos con prefijo `../../` (ej. `../../Estilo/styles.css`, `../../Scripts/main.js`, `../../Media/...`).
+   - **Etiquetas canónicas y Open Graph**: Deben reflejar la URL canónica sin extensión `.html` (ej. `<link rel="canonical" href="https://enriquebdel.github.io/Estructura/universidad/">`).
+   - **Mapa del sitio (`sitemap.xml`)**: Debe listar todas las URLs de páginas canónicas finalizando en barra `/`.
 
 ---
 
