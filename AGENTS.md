@@ -7,6 +7,7 @@ description: Guía de directrices, arquitectura y reglas obligatorias para el de
 > [!IMPORTANT]
 > **LECTURA OBLIGATORIA PREVIA A CUALQUIER ACCIÓN**:
 > Como agente asistente de desarrollo, **debes leer y aplicar estrictamente las directrices de este archivo antes de realizar cualquier edición, refactorización o creación de código** en este repositorio.
+> Asimismo, **debes consultar siempre [AGENT_HISTORY.md](AGENT_HISTORY.md)** para conocer de forma resumida el contexto de las peticiones previas y modificaciones realizadas, optimizando el contexto y ahorrando tokens.
 
 ---
 
@@ -22,9 +23,11 @@ El repositorio sigue una estricta separación de responsabilidades en sus direct
 
 ```text
 EB-Web-Oficial/
+├── .gitignore                   # Exclusiones de Git (incluye AGENT_HISTORY.md local)
 ├── 404.html                     # Página de error 404 personalizada
 ├── index.html                   # Página principal y portfolio (/)
 ├── AGENTS.md                    # Reglas obligatorias para el agente
+├── AGENT_HISTORY.md             # Historial de consultas y cambios (exclusivo en local, ignorado por git)
 ├── robots.txt                   # Directivas de rastreo para buscadores
 ├── sitemap.xml                  # Mapa del sitio con URLs limpias sin .html
 ├── Estilo/                      # Hojas de estilos CSS del proyecto
