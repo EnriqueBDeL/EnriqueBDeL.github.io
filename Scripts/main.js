@@ -408,3 +408,50 @@ if (document.readyState === 'loading') {
     initProjectCarousels();
 }
 
+/* ── Settings popover (bocadillo móvil) ───────────────────────────── */
+(function initSettingsPopover() {
+    const settingsBtn = document.getElementById('settings-toggle');
+    const popover = document.getElementById('settings-popover');
+    if (!settingsBtn || !popover) return;
+
+    function openPopover() {
+        popover.classList.add('open');
+        settingsBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closePopover() {
+        popover.classList.remove('open');
+        settingsBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    function togglePopover() {
+        if (popover.classList.contains('open')) {
+            closePopover();
+        } else {
+            openPopover();
+        }
+    }
+
+    settingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePopover();
+    });
+
+    /* Cerrar al pulsar fuera del popover */
+    document.addEventListener('click', (e) => {
+        if (!settingsBtn.contains(e.target) && !popover.contains(e.target)) {
+            closePopover();
+        }
+    });
+
+    /* Cerrar con Escape */
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closePopover();
+    });
+
+    /* Cerrar el popover automáticamente cuando el usuario selecciona un botón dentro */
+    popover.addEventListener('click', () => {
+        setTimeout(closePopover, 200);
+    });
+})();
+

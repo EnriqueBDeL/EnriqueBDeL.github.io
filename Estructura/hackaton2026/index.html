@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -89,12 +89,17 @@
 
     <!-- Botones de cambio de tema e idioma -->
     <section class="floating-actions">
-        <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
-            <i class="ph ph-moon"></i>
+        <button id="settings-toggle" class="settings-toggle-btn" aria-label="Opciones" aria-expanded="false" aria-controls="settings-popover">
+            <i class="ph ph-gear"></i>
         </button>
-        <button id="lang-toggle" class="lang-toggle-btn floating-toggle" aria-label="Cambiar idioma / Change language">
-            <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-t4c"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-t4c"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-t4c)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-t4c)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
-        </button>
+        <article id="settings-popover" class="settings-popover" role="menu">
+            <button id="theme-toggle" class="theme-toggle-btn floating-toggle" aria-label="Cambiar tema">
+                <i class="ph ph-moon"></i>
+            </button>
+            <button id="lang-toggle" class="lang-toggle-btn floating-toggle" aria-label="Cambiar idioma / Change language">
+                <svg class="lang-flag-svg" viewBox="0 0 60 30" width="20" height="12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="s-t4c"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t-t4c"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s-t4c)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t-t4c)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg>
+            </button>
+        </article>
     </section>
 
     <!-- Barra de navegación superior -->
