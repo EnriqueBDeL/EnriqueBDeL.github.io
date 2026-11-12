@@ -123,6 +123,7 @@ const translations = {
         "gdg_devfest_link": "Leer narración en LinkedIn",
         "gdg_secyt_desc": "Participé como divulgador en el Stand de Inteligencia Artificial. Utilizamos creatividad y vídeos generados por IA (#Suno, #NotebookLM) para enganchar a adultos y niños, explicando de forma lúdica y práctica el inmenso potencial de la tecnología en campos vitales como la educación y la salud.",
         "gdg_secyt_link": "Leer experiencia en LinkedIn",
+        "gdg_secyt26_desc": "Participé durante dos jornadas como divulgador tecnológico en el stand de la universidad, donde acercamos la informática y el hardware a asistentes de todas las edades. Estuvimos enseñando el funcionamiento de una consola emuladora con RetroPie, explicando los fundamentos técnicos de la emulación y permitiendo a las personas probar y disfrutar de videojuegos retro de forma lúdica y práctica.",
 
         // Vista Universidad
         "uni_title": "Mi paso por la UCAM",
@@ -294,6 +295,7 @@ const translations = {
         "gdg_devfest_link": "Read LinkedIn story",
         "gdg_secyt_desc": "Participated as a science communicator at the Artificial Intelligence Stand. We used creativity and AI-generated media (#Suno, #NotebookLM) to engage both adults and kids, explaining the immense potential of technology in education and healthcare in a fun, practical way.",
         "gdg_secyt_link": "Read LinkedIn story",
+        "gdg_secyt26_desc": "Participated across two days as a tech communicator at the university booth, introducing computing and hardware to attendees of all ages. We demonstrated how a RetroPie emulation system works, explaining the technical principles of emulation and allowing visitors to try out and enjoy retro video games first-hand.",
 
         // View Universidad
         "uni_title": "My Journey at UCAM",

@@ -95,8 +95,11 @@ EB-Web-Oficial/
 
 ## 🌐 Idioma y Convenciones
 
-1. **Idioma y Soporte Bilingüe**: El proyecto cuenta con soporte bilingüe en Español (por defecto) e Inglés mediante el selector de idioma y el diccionario reactivo en `Scripts/main.js` (con persistencia en `localStorage` y atributos semánticos `data-i18n`). Todos los textos y secciones deben mantener consistencia en ambos idiomas.
-2. **Consistencia**: Cualquier cambio debe mantener la armonía con la estructura existente y respetar los estilos globales definidos en `Estilo/styles.css`.
+1. **Idioma y Soporte Bilingüe**: El proyecto cuenta con soporte bilingüe en Español (por defecto) e Inglés mediante el selector de idioma y el diccionario reactivo en `Scripts/main.js` (con persistencia en `localStorage` y atributos semánticos `data-i18n`).
+2. **Traducciones en Inglés bajo demanda**:
+   - **No crear ni redactar traducciones en inglés en `Scripts/translations.js` hasta que el usuario lo solicite explícitamente**.
+   - No obstante, sí se debe dejar preparada la estructura organizativa en la sección de inglés de dicho archivo mediante los títulos o comentarios correspondientes que indiquen dónde deben ubicarse las futuras traducciones (por ejemplo: `// View Universidad`, `// View GDG`, etc.).
+3. **Consistencia**: Cualquier cambio debe mantener la armonía con la estructura existente y respetar los estilos globales definidos en `Estilo/styles.css`.
 
 ---
 
